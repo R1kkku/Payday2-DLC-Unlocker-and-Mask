@@ -36,16 +36,42 @@ local safe_mask = {
     mask_id = "character_locked",
     blueprint = {
         color = { id = "nothing" },
+        color_a = { id = "nothing" },
+        color_b = { id = "nothing" },
         pattern = { id = "no_color_no_material" },
         material = { id = "plastic" }
     }
 }
 
+local function get_safe_primary()
+    local factory_id = "wpn_fps_ass_m4_amcar"
+    local bp = (managers.weapon_factory and managers.weapon_factory:get_default_blueprint_by_factory_id(factory_id)) or safe_primary.blueprint
+    return {
+        weapon_id = "amcar",
+        equipped = true,
+        global_values = {},
+        factory_id = factory_id,
+        blueprint = bp
+    }
+end
+
+local function get_safe_secondary()
+    local factory_id = "wpn_fps_pis_g17"
+    local bp = (managers.weapon_factory and managers.weapon_factory:get_default_blueprint_by_factory_id(factory_id)) or safe_secondary.blueprint
+    return {
+        weapon_id = "glock_17",
+        equipped = true,
+        global_values = {},
+        factory_id = factory_id,
+        blueprint = bp
+    }
+end
+
 -- Return safe vanilla weapons when syncing outfit with peers/server
 local orig_equipped_primary = BlackMarketManager.equipped_primary
 function BlackMarketManager:equipped_primary(...)
     if Global.IS_SENDING_OUTFIT then
-        return safe_primary
+        return get_safe_primary()
     end
     return orig_equipped_primary(self, ...)
 end
@@ -53,7 +79,7 @@ end
 local orig_equipped_secondary = BlackMarketManager.equipped_secondary
 function BlackMarketManager:equipped_secondary(...)
     if Global.IS_SENDING_OUTFIT then
-        return safe_secondary
+        return get_safe_secondary()
     end
     return orig_equipped_secondary(self, ...)
 end
@@ -71,6 +97,31 @@ function BlackMarketManager:equipped_mask(...)
         return current or safe_mask
     end
     return orig_equipped_mask(self, ...)
+end
+
+-- Safely serialize mask outfit string during network sync
+local orig_outfit_string_mask = BlackMarketManager._outfit_string_mask
+function BlackMarketManager:_outfit_string_mask(...)
+    if Global.IS_SENDING_OUTFIT then
+        local current = orig_equipped_mask and orig_equipped_mask(self)
+        if current and current.mask_id then
+            local mask_tweak = tweak_data and tweak_data.blackmarket and tweak_data.blackmarket.masks and tweak_data.blackmarket.masks[current.mask_id]
+            if not (mask_tweak and mask_tweak.dlc) and orig_outfit_string_mask then
+                local status, res = pcall(orig_outfit_string_mask, self, ...)
+                if status and res then
+                    return res
+                end
+            end
+        end
+        return " character_locked nothing-nothing no_color_no_material plastic"
+    end
+    if orig_outfit_string_mask then
+        local status, res = pcall(orig_outfit_string_mask, self, ...)
+        if status and res then
+            return res
+        end
+    end
+    return " character_locked nothing-nothing no_color_no_material plastic"
 end
 
 -- Allow purchasing any item without DLC lock popups

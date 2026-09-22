@@ -13,6 +13,9 @@ Global.dlc_save.packages = Global.dlc_save.packages or {}
 -- This permanently prevents crashes like: "attempt to index local 'entry' (a nil value)"
 setmetatable(Global.dlc_manager.all_dlc_data, {
     __index = function(t, key)
+        if not key then
+            return nil
+        end
         local val = {
             verified = true,
             unlocked = true,

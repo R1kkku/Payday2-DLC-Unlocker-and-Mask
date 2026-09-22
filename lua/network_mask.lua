@@ -16,10 +16,5 @@ function BaseNetworkSession:check_send_outfit(peer, ...)
     return res
 end
 
--- Bypass client-side cheat detection flags on DLC equipment
-local orig_check_cheating = BaseNetworkSession.check_cheating
-function BaseNetworkSession:check_cheating(...)
-    return true
-end
-
 log("[DLC Unlocker] Network Session outfit masking initialized.")
+
