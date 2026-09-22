@@ -118,3 +118,22 @@ if RequiredScript == "lib/managers/menu/lootdropscreencomponent" then
         return result
     end
 end
+
+-- 6. Block Store Redirects from MenuCallbackHandler
+if MenuCallbackHandler then
+    function MenuCallbackHandler:open_dlc_store(...)
+        log("[DLC Unlocker] Blocked MenuCallbackHandler open_dlc_store")
+        return
+    end
+
+    function MenuCallbackHandler:open_steam_store(...)
+        log("[DLC Unlocker] Blocked MenuCallbackHandler open_steam_store")
+        return
+    end
+
+    function MenuCallbackHandler:buy_dlc(...)
+        log("[DLC Unlocker] Blocked MenuCallbackHandler buy_dlc")
+        return
+    end
+end
+

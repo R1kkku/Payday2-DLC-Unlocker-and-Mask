@@ -13,7 +13,15 @@
             "script_path": "lua/blackmarket_mask.lua"
         },
         {
+            "hook_id": "lib/managers/weaponfactorymanager",
+            "script_path": "lua/blackmarket_mask.lua"
+        },
+        {
             "hook_id": "lib/network/base/basenetworksession",
+            "script_path": "lua/network_mask.lua"
+        },
+        {
+            "hook_id": "lib/network/base/networkpeer",
             "script_path": "lua/network_mask.lua"
         },
         {
