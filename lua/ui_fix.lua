@@ -122,18 +122,169 @@ end
 -- 6. Block Store Redirects from MenuCallbackHandler
 if MenuCallbackHandler then
     function MenuCallbackHandler:open_dlc_store(...)
-        log("[DLC Unlocker] Blocked MenuCallbackHandler open_dlc_store")
         return
     end
 
     function MenuCallbackHandler:open_steam_store(...)
-        log("[DLC Unlocker] Blocked MenuCallbackHandler open_steam_store")
         return
     end
 
     function MenuCallbackHandler:buy_dlc(...)
-        log("[DLC Unlocker] Blocked MenuCallbackHandler buy_dlc")
         return
     end
 end
+
+-- 7. Fix HUDLootScreen crash when panel is nil (Crime Spree / Game Mode transitions)
+if HUDLootScreen and not rawget(HUDLootScreen, "_dlc_fix_patched") then
+    rawset(HUDLootScreen, "_dlc_fix_patched", true)
+    local orig_init = HUDLootScreen.init
+    function HUDLootScreen:init(hud, ...)
+        if not hud or not hud.panel then
+            if managers and managers.hud and managers.hud._create_hud_chat_access then
+                -- Provide dummy or parent panel fallback to avoid nil index crash
+                hud = hud or {}
+                hud.panel = hud.panel or (managers.gui_data and managers.gui_data:create_saferect_workspace() and managers.gui_data:create_saferect_workspace():panel())
+            end
+        end
+        if hud and hud.panel and orig_init then
+            return orig_init(self, hud, ...)
+        end
+    end
+end
+
+if HUDManager and not rawget(HUDManager, "_dlc_fix_patched") then
+    rawset(HUDManager, "_dlc_fix_patched", true)
+    local orig_setup_lootscreen_hud = HUDManager.setup_lootscreen_hud
+    function HUDManager:setup_lootscreen_hud(...)
+        local hud = managers.hud:script(PlayerBase.PLAYER_INFO_HUD_FULLSCREEN_PD2 or Idstring("guis/player_info_hud_fullscreen_pd2"))
+        if not hud or not hud.panel then
+            local ws = managers.gui_data and managers.gui_data:create_saferect_workspace()
+            if ws then
+                self._hud_lootscreen = HUDLootScreen:new(nil, ws, ws:panel())
+                return
+            end
+        end
+        if orig_setup_lootscreen_hud then
+            local status, res = pcall(orig_setup_lootscreen_hud, self, ...)
+            if status then
+                return res
+            end
+        end
+    end
+end
+
+-- 8. Fix Crime Spree ModifierLessConcealment crash when opening Inventory Menu
+local function patch_modifier_less_concealment(cls)
+    if not cls or rawget(cls, "_patched_groupai") then
+        return
+    end
+    rawset(cls, "_patched_groupai", true)
+
+    local orig_modify_value = cls.modify_value
+    function cls:modify_value(id, value, ...)
+        if id == "player_visibility" then
+            if not managers.groupai or not managers.groupai.state or not managers.groupai:state() or not managers.groupai:state().whisper_mode then
+                return value
+            end
+        end
+        if orig_modify_value then
+            local ok, res = pcall(orig_modify_value, self, id, value, ...)
+            if ok and res ~= nil then
+                return res
+            end
+        end
+        return value
+    end
+end
+
+if ModifierLessConcealment then
+    patch_modifier_less_concealment(ModifierLessConcealment)
+end
+
+if ModifiersManager and not rawget(ModifiersManager, "_dlc_fix_patched") then
+    rawset(ModifiersManager, "_dlc_fix_patched", true)
+    local orig_modify_value = ModifiersManager.modify_value
+    function ModifiersManager:modify_value(id, value, ...)
+        if id == "player_visibility" then
+            if not managers.groupai or not managers.groupai.state or not managers.groupai:state() or not managers.groupai:state().whisper_mode then
+                return value
+            end
+        end
+        if orig_modify_value then
+            local ok, res = pcall(orig_modify_value, self, id, value, ...)
+            if ok and res ~= nil then
+                return res
+            end
+        end
+        return value
+    end
+end
+
+-- 9. Protect PlayerInventoryGui against Crime Spree concealment crash and unhandled exceptions
+if PlayerInventoryGui and not rawget(PlayerInventoryGui, "_dlc_fix_patched") then
+    rawset(PlayerInventoryGui, "_dlc_fix_patched", true)
+
+    local orig_init = PlayerInventoryGui.init
+    function PlayerInventoryGui:init(...)
+        if ModifierLessConcealment then
+            patch_modifier_less_concealment(ModifierLessConcealment)
+        end
+        if orig_init then
+            local ok, err = pcall(orig_init, self, ...)
+            if not ok then
+                log("[DLC Unlocker] Warning in PlayerInventoryGui:init: " .. tostring(err))
+            end
+        end
+        self._boxes = self._boxes or {}
+        self._text_buttons = self._text_buttons or {}
+    end
+
+    local orig_mouse_moved = PlayerInventoryGui.mouse_moved
+    function PlayerInventoryGui:mouse_moved(...)
+        if not self._boxes or type(self._boxes) ~= "table" then
+            return false
+        end
+        if orig_mouse_moved then
+            return orig_mouse_moved(self, ...)
+        end
+        return false
+    end
+
+    local orig_mouse_pressed = PlayerInventoryGui.mouse_pressed
+    function PlayerInventoryGui:mouse_pressed(...)
+        if not self._boxes or type(self._boxes) ~= "table" then
+            return false
+        end
+        if orig_mouse_pressed then
+            return orig_mouse_pressed(self, ...)
+        end
+        return false
+    end
+
+    local orig_mouse_released = PlayerInventoryGui.mouse_released
+    function PlayerInventoryGui:mouse_released(...)
+        if not self._boxes or type(self._boxes) ~= "table" then
+            return false
+        end
+        if orig_mouse_released then
+            return orig_mouse_released(self, ...)
+        end
+        return false
+    end
+end
+
+if MenuComponentManager and not rawget(MenuComponentManager, "_dlc_inv_patched") then
+    rawset(MenuComponentManager, "_dlc_inv_patched", true)
+
+    local orig_create_inventory_gui = MenuComponentManager._create_inventory_gui
+    function MenuComponentManager:_create_inventory_gui(...)
+        if ModifierLessConcealment then
+            patch_modifier_less_concealment(ModifierLessConcealment)
+        end
+        if orig_create_inventory_gui then
+            return orig_create_inventory_gui(self, ...)
+        end
+    end
+end
+
 

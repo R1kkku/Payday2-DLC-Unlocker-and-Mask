@@ -43,6 +43,22 @@
         {
             "hook_id": "lib/managers/menu/lootdropscreencomponent",
             "script_path": "lua/ui_fix.lua"
+        },
+        {
+            "hook_id": "lib/managers/hudmanagerpd2",
+            "script_path": "lua/ui_fix.lua"
+        },
+        {
+            "hook_id": "lib/managers/menu/playerinventorygui",
+            "script_path": "lua/ui_fix.lua"
+        },
+        {
+            "hook_id": "lib/modifiers/modifierlessconcealment",
+            "script_path": "lua/ui_fix.lua"
+        },
+        {
+            "hook_id": "lib/managers/modifiersmanager",
+            "script_path": "lua/ui_fix.lua"
         }
     ]
 }
