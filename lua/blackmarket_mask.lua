@@ -203,22 +203,26 @@ if BlackMarketManager and not rawget(BlackMarketManager, "_dlc_bm_patched") then
         return current
     end
 
+    -- DO NOT spoof melee weapon — the server syncs melee attack events with the
+    -- equipped melee ID. Spoofing it causes a mismatch during gameplay → potential desync.
+    -- Melee weapons are just string IDs; they don't require DLC packages on other clients.
     local orig_equipped_melee_weapon = BlackMarketManager.equipped_melee_weapon
     function BlackMarketManager:equipped_melee_weapon(...)
-        if Global.IS_SENDING_OUTFIT then
-            return "weapon"
-        end
         if orig_equipped_melee_weapon then
-            return orig_equipped_melee_weapon(self, ...)
+            local melee = orig_equipped_melee_weapon(self, ...)
+            if melee and melee ~= "" then
+                return melee
+            end
         end
         return "weapon"
     end
 
+    -- DO NOT spoof throwable/grenade — the server tracks what you throw in real-time.
+    -- If the outfit says "frag" with 0 amount but you throw smoke/molotov/etc, the
+    -- server detects a mismatch → desync → kick (or crash for others if you're host).
+    -- Throwables are just string IDs; no DLC packages need loading on other clients.
     local orig_equipped_grenade = BlackMarketManager.equipped_grenade
     function BlackMarketManager:equipped_grenade(...)
-        if Global.IS_SENDING_OUTFIT then
-            return "frag", 0
-        end
         if orig_equipped_grenade then
             local grenade, amount = orig_equipped_grenade(self, ...)
             if grenade and grenade ~= "" then
@@ -274,6 +278,9 @@ if BlackMarketManager and not rawget(BlackMarketManager, "_dlc_bm_patched") then
 
     local orig_equipped_character = BlackMarketManager.equipped_character
     function BlackMarketManager:equipped_character(...)
+        if Global.IS_SENDING_OUTFIT then
+            return "russian"
+        end
         if orig_equipped_character then
             local char = orig_equipped_character(self, ...)
             if char and char ~= "" then
@@ -298,21 +305,16 @@ if BlackMarketManager and not rawget(BlackMarketManager, "_dlc_bm_patched") then
         return " character_locked plastic no_color_no_material nothing-nothing-strip_paint"
     end
 
-    -- Ensure outfit_string always returns a valid, clean, masked string across all network transmissions
+    -- DO NOT force-mask outfit_string(). Masking is handled by check_send_outfit()
+    -- in network_mask.lua, which sets IS_SENDING_OUTFIT = true before calling this.
+    -- DO NOT use pcall — let errors propagate so PD2's state machine works correctly.
     local orig_outfit_string = BlackMarketManager.outfit_string
     function BlackMarketManager:outfit_string(...)
-        local was_sending = Global.IS_SENDING_OUTFIT
-        Global.IS_SENDING_OUTFIT = true
-        local status, res
         if orig_outfit_string then
-            status, res = pcall(orig_outfit_string, self, ...)
+            return orig_outfit_string(self, ...)
         end
-        Global.IS_SENDING_OUTFIT = was_sending
-        if status and res and type(res) == "string" and res ~= "" then
-            return res
-        end
-        local current_grenade = (self.equipped_grenade and self:equipped_grenade()) or "frag"
-        return "character_locked plastic no_color_no_material nothing-nothing-strip_paint level_1-level_1-level_1-none-suit-default-default russian wpn_fps_ass_amcar 1 wpn_fps_pis_g17 1 nil 0 nil 0 0 weapon " .. tostring(current_grenade) .. " 42_0 nil-1-0 nil-1-0"
+        -- Hardcoded fallback only if the original function doesn't exist
+        return "character_locked plastic no_color_no_material nothing-nothing-strip_paint level_1-level_1-level_1-none-suit-default-default russian wpn_fps_ass_amcar 1 wpn_fps_pis_g17 1 nil 0 nil 0 0 weapon frag 42_0 nil-1-0 nil-1-0"
     end
 
 
