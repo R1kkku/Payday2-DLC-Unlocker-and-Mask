@@ -13,30 +13,51 @@
 
 -- Wrap check_send_outfit so that equipped items query the masked versions
 if BaseNetworkSession then
+    DBG("NET", "BaseNetworkSession detected — hooking check_send_outfit")
     local orig_check_send_outfit = BaseNetworkSession.check_send_outfit
     function BaseNetworkSession:check_send_outfit(peer, ...)
         -- Set the flag so equipped_*() hooks return vanilla items,
         -- then call the original which handles RPC to the host.
         -- NO pcall — let any errors propagate naturally so PD2's
         -- session state machine can handle them properly.
+        local peer_id = peer and peer.id and peer:id() or "?"
+        DBG("NET", ">>> check_send_outfit CALLED for peer " .. tostring(peer_id))
+        DBG("NET", "    Setting IS_SENDING_OUTFIT = true")
         Global.IS_SENDING_OUTFIT = true
         local res = orig_check_send_outfit(self, peer, ...)
         Global.IS_SENDING_OUTFIT = false
+        DBG("NET", "    IS_SENDING_OUTFIT reset to false. Result: " .. tostring(res))
         return res
     end
+else
+    DBG("NET", "WARNING: BaseNetworkSession is NIL — check_send_outfit hook SKIPPED")
 end
 
 -- Suppress cheater tags for the local player only
 if NetworkPeer then
+    DBG("NET", "NetworkPeer detected — hooking mark_cheater and is_cheater")
+
     local orig_mark_cheater = NetworkPeer.mark_cheater
     function NetworkPeer:mark_cheater(reason, auto_kick, ...)
+        local peer_id = self.id and self:id() or "?"
+        DBG("CHEAT", "!!! mark_cheater CALLED on peer " .. tostring(peer_id) .. " | reason: " .. tostring(reason) .. " | auto_kick: " .. tostring(auto_kick))
+
         -- Only block for local peer; let remote peer marks through
         if managers and managers.network and managers.network:session() then
             local lp = managers.network:session():local_peer()
-            if lp and (self == lp or self:id() == lp:id()) then
-                return
+            if lp then
+                local local_id = lp.id and lp:id() or "?"
+                DBG("CHEAT", "    Local peer ID: " .. tostring(local_id) .. " | This peer ID: " .. tostring(peer_id))
+                if self == lp or self:id() == lp:id() then
+                    DBG("CHEAT", "    >>> BLOCKED mark_cheater for LOCAL peer (reason: " .. tostring(reason) .. ")")
+                    return
+                end
             end
+        else
+            DBG("CHEAT", "    WARNING: managers.network or session is nil!")
         end
+
+        DBG("CHEAT", "    Allowing mark_cheater for REMOTE peer " .. tostring(peer_id))
         if orig_mark_cheater then
             return orig_mark_cheater(self, reason, auto_kick, ...)
         end
@@ -44,16 +65,26 @@ if NetworkPeer then
 
     local orig_is_cheater = NetworkPeer.is_cheater
     function NetworkPeer:is_cheater(...)
+        local peer_id = self.id and self:id() or "?"
+
         -- Only override for local peer
         if managers and managers.network and managers.network:session() then
             local lp = managers.network:session():local_peer()
             if lp and (self == lp or self:id() == lp:id()) then
+                DBG("CHEAT", "is_cheater queried for LOCAL peer " .. tostring(peer_id) .. " → returning FALSE")
                 return false
             end
         end
+
+        local result = false
         if orig_is_cheater then
-            return orig_is_cheater(self, ...)
+            result = orig_is_cheater(self, ...)
         end
-        return false
+        DBG("CHEAT", "is_cheater queried for REMOTE peer " .. tostring(peer_id) .. " → returning " .. tostring(result))
+        return result
     end
+else
+    DBG("NET", "WARNING: NetworkPeer is NIL — cheater hooks SKIPPED")
 end
+
+DBG("NET", "network_mask.lua fully loaded.")

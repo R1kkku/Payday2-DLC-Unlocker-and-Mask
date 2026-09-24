@@ -6,6 +6,10 @@
     "hooks": [
         {
             "hook_id": "lib/managers/dlcmanager",
+            "script_path": "lua/debug_console.lua"
+        },
+        {
+            "hook_id": "lib/managers/dlcmanager",
             "script_path": "lua/dlc_manager.lua"
         },
         {

@@ -33,9 +33,11 @@ local function unlock_dlc_manager(manager_class)
         return
     end
     if rawget(manager_class, "_dlc_unlocked") then
+        DBG("DLC", "  Already unlocked, skipping")
         return
     end
     rawset(manager_class, "_dlc_unlocked", true)
+    DBG("DLC", "  Applying unlock overrides...")
 
     function manager_class:is_dlc_unlocked(dlc_id)
         return true
@@ -176,8 +178,9 @@ local dlc_classes = {
     DLCManager
 }
 
-for _, cls in ipairs(dlc_classes) do
+for i, cls in ipairs(dlc_classes) do
     if cls then
+        DBG("DLC", "Unlocking DLC class #" .. i .. ": " .. tostring(cls))
         unlock_dlc_manager(cls)
     end
 end
@@ -261,6 +264,7 @@ for _, target in ipairs(hook_targets) do
     local cls, hook_name = target[1], target[2]
     if cls and cls.init then
         Hooks:PostHook(cls, "init", hook_name, function(self)
+            DBG("DLC", "PostHook fired: " .. hook_name)
             apply_full_unlock(self)
             unlock_dlc_manager(self)
         end)
@@ -268,6 +272,8 @@ for _, target in ipairs(hook_targets) do
 end
 
 -- Run immediate unlock pass on startup
+DBG("DLC", "Running immediate startup unlock pass...")
 apply_full_unlock(nil)
 
+DBG("DLC", "DLC Manager fully initialized.")
 log("[DLC Unlocker] DLC Manager successfully initialized with full unlocks and nil protection.")
