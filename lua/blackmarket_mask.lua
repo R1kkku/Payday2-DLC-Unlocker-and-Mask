@@ -3,6 +3,8 @@
 -- RequiredScript: lib/managers/blackmarketmanager
 -- =====================================================================
 
+-- Static safe weapon tables — uses your current updated blueprint names
+-- No dynamic API calls during outfit sync to avoid detection
 local safe_primary = {
     weapon_id = "amcar",
     equipped = true,
@@ -43,51 +45,46 @@ local safe_mask = {
     }
 }
 
-local function get_safe_primary()
-    local factory_id = "wpn_fps_ass_m4_amcar"
-    local bp = (managers.weapon_factory and managers.weapon_factory:get_default_blueprint_by_factory_id(factory_id)) or safe_primary.blueprint
-    return {
-        weapon_id = "amcar",
-        equipped = true,
-        global_values = {},
-        factory_id = factory_id,
-        blueprint = bp
-    }
-end
-
-local function get_safe_secondary()
-    local factory_id = "wpn_fps_pis_g17"
-    local bp = (managers.weapon_factory and managers.weapon_factory:get_default_blueprint_by_factory_id(factory_id)) or safe_secondary.blueprint
-    return {
-        weapon_id = "glock_17",
-        equipped = true,
-        global_values = {},
-        factory_id = factory_id,
-        blueprint = bp
-    }
-end
-
 -- Return safe vanilla weapons when syncing outfit with peers/server
+-- Uses direct static table return — no extra API calls during outfit sync
 local orig_equipped_primary = BlackMarketManager.equipped_primary
-function BlackMarketManager:equipped_primary(...)
-    if Global.IS_SENDING_OUTFIT then
-        return get_safe_primary()
-    end
-    return orig_equipped_primary(self, ...)
+function BlackMarketManager:equipped_primary()
+    return Global.IS_SENDING_OUTFIT and safe_primary or orig_equipped_primary(self)
 end
 
 local orig_equipped_secondary = BlackMarketManager.equipped_secondary
-function BlackMarketManager:equipped_secondary(...)
-    if Global.IS_SENDING_OUTFIT then
-        return get_safe_secondary()
-    end
-    return orig_equipped_secondary(self, ...)
+function BlackMarketManager:equipped_secondary()
+    return Global.IS_SENDING_OUTFIT and safe_secondary or orig_equipped_secondary(self)
 end
 
+-- Send safe default grenade during outfit sync to prevent crashes/desync
+-- DLC grenades cause crashes for other players when hosting and desync when joining
+local orig_equipped_grenade = BlackMarketManager.equipped_grenade
+if orig_equipped_grenade then
+    function BlackMarketManager:equipped_grenade()
+        if Global.IS_SENDING_OUTFIT then
+            return "frag"
+        end
+        return orig_equipped_grenade(self)
+    end
+end
+
+-- Send safe default deployable during outfit sync
+local orig_equipped_deployable = BlackMarketManager.equipped_deployable
+if orig_equipped_deployable then
+    function BlackMarketManager:equipped_deployable()
+        if Global.IS_SENDING_OUTFIT then
+            return "ammo_bag"
+        end
+        return orig_equipped_deployable(self)
+    end
+end
+
+-- Mask DLC masks during outfit sync to prevent cheater tag from mask detection
 local orig_equipped_mask = BlackMarketManager.equipped_mask
-function BlackMarketManager:equipped_mask(...)
+function BlackMarketManager:equipped_mask()
     if Global.IS_SENDING_OUTFIT then
-        local current = orig_equipped_mask and orig_equipped_mask(self, ...)
+        local current = orig_equipped_mask and orig_equipped_mask(self)
         if current and current.mask_id then
             local mask_tweak = tweak_data and tweak_data.blackmarket and tweak_data.blackmarket.masks and tweak_data.blackmarket.masks[current.mask_id]
             if mask_tweak and mask_tweak.dlc then
@@ -96,7 +93,7 @@ function BlackMarketManager:equipped_mask(...)
         end
         return current or safe_mask
     end
-    return orig_equipped_mask(self, ...)
+    return orig_equipped_mask(self)
 end
 
 -- Safely serialize mask outfit string during network sync
