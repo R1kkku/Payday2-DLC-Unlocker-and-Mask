@@ -292,6 +292,18 @@ if BlackMarketManager and not rawget(BlackMarketManager, "_dlc_bm_patched") then
         return "default"
     end
 
+    -- Mask DLC armor tier — vanilla max is level_6; level_7+ triggers cheater tag on host
+    local orig_equipped_armor = BlackMarketManager.equipped_armor
+    if orig_equipped_armor then
+        function BlackMarketManager:equipped_armor(...)
+            if Global.IS_SENDING_OUTFIT then
+                DBG("BM", "equipped_armor MASKED → level_1")
+                return "level_1"
+            end
+            return orig_equipped_armor(self, ...)
+        end
+    end
+
     local orig_equipped_armor_skin = BlackMarketManager.equipped_armor_skin
     function BlackMarketManager:equipped_armor_skin(...)
         if Global.IS_SENDING_OUTFIT then
