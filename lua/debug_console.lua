@@ -20,28 +20,69 @@ local LOG_NAME = "debug_log.txt"
 local LOG_FILE = MOD_PATH .. LOG_NAME
 local MOD_TAG  = "[UltimateDLC]"
 
--- Resolve absolute path once
-if not state.abs_log_path then
-    local handle = io.popen("cd")
-    if handle then
-        local cwd = handle:read("*l")
-        handle:close()
-        if cwd and cwd ~= "" then
-            state.abs_log_path = cwd .. "\\" .. MOD_PATH:gsub("/", "\\") .. LOG_NAME
-        end
-    end
-    if not state.abs_log_path then
-        state.abs_log_path = "C:\\Program Files (x86)\\Steam\\steamapps\\common\\PAYDAY 2\\" .. MOD_PATH:gsub("/", "\\") .. LOG_NAME
-    end
+-- Session timestamp (YYYY-MM-DD_HH-MM-SS) generated once per game launch
+if not state.session_id then
+    state.session_id = os.date("%Y-%m-%d_%H-%M-%S")
 end
+
+local LOGS_DIR = MOD_PATH .. "logs/"
+local SESSION_LOG_NAME = "debug_log_" .. state.session_id .. ".txt"
+local SESSION_LOG_FILE = LOGS_DIR .. SESSION_LOG_NAME
+
+-- Ensure logs directory exists
+local function ensure_logs_dir()
+    local win_dir = (MOD_PATH .. "logs"):gsub("/", "\\")
+    if SystemFS and SystemFS.make_dir then
+        pcall(function() SystemFS:make_dir(MOD_PATH .. "logs") end)
+    end
+    if file and file.CreateDirectory then
+        pcall(function() file.CreateDirectory(MOD_PATH .. "logs") end)
+    end
+    os.execute('if not exist "' .. win_dir .. '" mkdir "' .. win_dir .. '" 2>nul')
+end
+ensure_logs_dir()
+
+-- Resolve absolute paths once
+if not state.abs_base_path then
+    local handle = io.popen("cd")
+    local cwd = nil
+    if handle then
+        cwd = handle:read("*l")
+        handle:close()
+    end
+    if not cwd or cwd == "" then
+        cwd = "C:\\Program Files (x86)\\Steam\\steamapps\\common\\PAYDAY 2"
+    end
+    state.abs_base_path = cwd .. "\\" .. MOD_PATH:gsub("/", "\\")
+end
+state.abs_log_path = state.abs_base_path .. LOG_NAME
+state.abs_session_path = state.abs_base_path .. "logs\\" .. SESSION_LOG_NAME
 
 -- Start time — only set once per game session
 state.start_time = state.start_time or os.clock()
 
--- Open/reopen the log file handle (file handles don't survive across script reloads)
-local _log_handle = io.open(LOG_FILE, state.console_opened and "a" or "w")
-if _log_handle then
-    _log_handle:setvbuf("line")
+-- Open/reopen the log file handles (handles don't survive across script reloads)
+local open_mode = state.console_opened and "a" or "w"
+
+local _session_handle = io.open(SESSION_LOG_FILE, open_mode)
+if _session_handle then
+    _session_handle:setvbuf("line")
+end
+
+local _latest_handle = io.open(LOG_FILE, open_mode)
+if _latest_handle then
+    _latest_handle:setvbuf("line")
+end
+
+local function write_to_log_files(content)
+    if _session_handle then
+        _session_handle:write(content)
+        _session_handle:flush()
+    end
+    if _latest_handle then
+        _latest_handle:write(content)
+        _latest_handle:flush()
+    end
 end
 
 -- Open the CMD window ONCE per game launch
@@ -60,31 +101,35 @@ local function open_console_window()
         bat:write("color 0A\n")
         bat:write("echo ============================================================\n")
         bat:write("echo   UltimateDLC Debug Console - Live Output\n")
-        bat:write("echo   Log: " .. state.abs_log_path .. "\n")
+        bat:write("echo   Session ID:  " .. state.session_id .. "\n")
+        bat:write("echo   Session Log: " .. state.abs_session_path .. "\n")
+        bat:write("echo   Latest Log:  " .. state.abs_log_path .. "\n")
         bat:write("echo ============================================================\n")
         bat:write("echo.\n")
-        bat:write('powershell -NoProfile -Command "Get-Content -Path \'' .. state.abs_log_path .. '\' -Wait -Tail 200"\n')
+        bat:write('powershell -NoProfile -Command "Get-Content -Path \'' .. state.abs_session_path .. '\' -Wait -Tail 200"\n')
         bat:write("pause\n")
         bat:close()
 
-        local abs_bat = state.abs_log_path:gsub(LOG_NAME, "tail_debug.bat")
+        local abs_bat = state.abs_base_path .. "tail_debug.bat"
         os.execute('start "" "' .. abs_bat .. '"')
     end
 end
 
 -- Core debug function
 local function DBG(tag, msg, ...)
-    if not _log_handle then
+    if not _session_handle and not _latest_handle then
         return
     end
 
     -- Open console on very first message of the game session
     if not state.console_opened then
-        _log_handle:write("=============================================================\n")
-        _log_handle:write("  UltimateDLC Debug Console\n")
-        _log_handle:write("  Started: " .. os.date("%Y-%m-%d %H:%M:%S") .. "\n")
-        _log_handle:write("=============================================================\n\n")
-        _log_handle:flush()
+        local header = "=============================================================\n" ..
+                       "  UltimateDLC Debug Console\n" ..
+                       "  Started:     " .. os.date("%Y-%m-%d %H:%M:%S") .. "\n" ..
+                       "  Session Log: logs/" .. SESSION_LOG_NAME .. "\n" ..
+                       "  Latest Log:  " .. LOG_NAME .. "\n" ..
+                       "=============================================================\n\n"
+        write_to_log_files(header)
         open_console_window()
     end
 
@@ -113,8 +158,7 @@ local function DBG(tag, msg, ...)
     end
 
     local line = string.format("%s %s %s %s\n", timestamp, MOD_TAG, formatted_tag, text)
-    _log_handle:write(line)
-    _log_handle:flush()
+    write_to_log_files(line)
 
     -- Also send to BLT log
     log(MOD_TAG .. " " .. formatted_tag .. " " .. text)
@@ -151,10 +195,14 @@ end
 
 -- Shutdown
 local function DBG_CLOSE()
-    if _log_handle then
-        DBG("SYSTEM", "Debug console closing.")
-        _log_handle:close()
-        _log_handle = nil
+    DBG("SYSTEM", "Debug console closing.")
+    if _session_handle then
+        _session_handle:close()
+        _session_handle = nil
+    end
+    if _latest_handle then
+        _latest_handle:close()
+        _latest_handle = nil
     end
 end
 
