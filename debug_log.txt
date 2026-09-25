@@ -1,31 +1,931 @@
 =============================================================
   UltimateDLC Debug Console
-  Started:     2026-09-25 08:44:51
-  Session Log: logs/debug_log_2026-09-25_08-44-46.txt
+  Started:     2026-09-25 11:40:55
+  Session Log: logs/debug_log_2026-09-25_11-40-54.txt
   Latest Log:  debug_log.txt
 =============================================================
 
-[00:00.444] [UltimateDLC] [SYSTEM] Debug module loaded. console_opened=nil
-[00:00.457] [UltimateDLC] [DLC] Unlocking DLC class #1: table: 0x3f881d40
-[00:00.457] [UltimateDLC] [DLC]   Applying unlock overrides...
-[00:00.457] [UltimateDLC] [DLC] Unlocking DLC class #2: table: 0x3f881e40
-[00:00.457] [UltimateDLC] [DLC]   Applying unlock overrides...
-[00:00.457] [UltimateDLC] [DLC] Unlocking DLC class #3: table: 0x3f881e80
-[00:00.458] [UltimateDLC] [DLC]   Applying unlock overrides...
-[00:00.458] [UltimateDLC] [DLC] Running immediate startup unlock pass...
-[00:00.458] [UltimateDLC] [DLC] DLC Manager fully initialized.
-[00:00.458] [UltimateDLC] [DLC] PostHook fired: UltimateDLC_Generic_Init
-[00:00.458] [UltimateDLC] [DLC]   Applying unlock overrides...
-[00:00.458] [UltimateDLC] [DLC] PostHook fired: UltimateDLC_WIN_Init
-[00:00.458] [UltimateDLC] [DLC]   Already unlocked, skipping
-[00:00.458] [UltimateDLC] [DLC] PostHook fired: UltimateDLC_WinSteam_Init
-[00:00.458] [UltimateDLC] [DLC]   Already unlocked, skipping
-[00:01.220] [UltimateDLC] [BM] BlackMarket Manager and Weapon Factory hooks initialized.
-[00:01.222] [UltimateDLC] [BM] BlackMarket Manager and Weapon Factory hooks initialized.
-[00:01.278] [UltimateDLC] [BM] BlackMarket Manager and Weapon Factory hooks initialized.
-[00:01.309] [UltimateDLC] [NET] BaseNetworkSession detected — hooking check_send_outfit
-[00:01.309] [UltimateDLC] [NET] WARNING: NetworkPeer is NIL — cheater hooks SKIPPED
-[00:01.309] [UltimateDLC] [NET] network_mask.lua fully loaded — ALL cheater paths hooked (6 layers)
-[00:01.317] [UltimateDLC] [NET] BaseNetworkSession detected — hooking check_send_outfit
-[00:01.317] [UltimateDLC] [NET] NetworkPeer detected — hooking ALL cheater paths
-[00:01.317] [UltimateDLC] [NET] network_mask.lua fully loaded — ALL cheater paths hooked (6 layers)
+[00:00.553] [UltimateDLC] [SYSTEM] Debug module loaded. console_opened=nil
+[00:00.563] [UltimateDLC] [DLC] Unlocking DLC class #1: table: 0x3f871d40
+[00:00.564] [UltimateDLC] [DLC]   Applying unlock overrides...
+[00:00.564] [UltimateDLC] [DLC] Unlocking DLC class #2: table: 0x3f871e40
+[00:00.564] [UltimateDLC] [DLC]   Applying unlock overrides...
+[00:00.564] [UltimateDLC] [DLC] Unlocking DLC class #3: table: 0x3f871e80
+[00:00.564] [UltimateDLC] [DLC]   Applying unlock overrides...
+[00:00.564] [UltimateDLC] [DLC] Running immediate startup unlock pass...
+[00:00.564] [UltimateDLC] [DLC] DLC Manager fully initialized.
+[00:00.564] [UltimateDLC] [DLC] PostHook fired: UltimateDLC_Generic_Init
+[00:00.564] [UltimateDLC] [DLC]   Applying unlock overrides...
+[00:00.564] [UltimateDLC] [DLC] PostHook fired: UltimateDLC_WIN_Init
+[00:00.564] [UltimateDLC] [DLC]   Already unlocked, skipping
+[00:00.564] [UltimateDLC] [DLC] PostHook fired: UltimateDLC_WinSteam_Init
+[00:00.564] [UltimateDLC] [DLC]   Already unlocked, skipping
+[00:01.318] [UltimateDLC] [BM] BlackMarket Manager and Weapon Factory hooks initialized.
+[00:01.320] [UltimateDLC] [BM] BlackMarket Manager and Weapon Factory hooks initialized.
+[00:01.378] [UltimateDLC] [BM] BlackMarket Manager and Weapon Factory hooks initialized.
+[00:01.406] [UltimateDLC] [NET] BaseNetworkSession detected — hooking check_send_outfit
+[00:01.406] [UltimateDLC] [NET] WARNING: NetworkPeer is NIL — cheater hooks SKIPPED
+[00:01.406] [UltimateDLC] [NET] network_mask.lua fully loaded — ALL cheater paths hooked (6 layers)
+[00:01.414] [UltimateDLC] [NET] BaseNetworkSession detected — hooking check_send_outfit
+[00:01.414] [UltimateDLC] [NET] NetworkPeer detected — hooking ALL cheater paths
+[00:01.414] [UltimateDLC] [NET] network_mask.lua fully loaded — ALL cheater paths hooked (6 layers)
+[00:05.122] [UltimateDLC] [BM] equipped_armor_skin REAL → none
+[00:05.122] [UltimateDLC] [BM] equipped_player_style REAL → none
+[00:05.122] [UltimateDLC] [BM] equipped_glove_id REAL → default
+[00:05.122] [UltimateDLC] [BM] equipped_armor_skin REAL → none
+[00:05.122] [UltimateDLC] [BM] equipped_player_style REAL → none
+[00:05.122] [UltimateDLC] [BM] equipped_glove_id REAL → default
+[00:05.122] [UltimateDLC] [BM] equipped_armor_skin REAL → none
+[00:05.122] [UltimateDLC] [BM] equipped_player_style REAL → none
+[00:05.122] [UltimateDLC] [BM] equipped_glove_id REAL → default
+[00:05.122] [UltimateDLC] [BM] equipped_armor_skin REAL → none
+[00:05.122] [UltimateDLC] [BM] equipped_player_style REAL → none
+[00:05.122] [UltimateDLC] [BM] equipped_glove_id REAL → default
+[00:05.122] [UltimateDLC] [BM] equipped_armor_skin REAL → none
+[00:05.122] [UltimateDLC] [BM] equipped_player_style REAL → none
+[00:05.122] [UltimateDLC] [BM] equipped_glove_id REAL → default
+[00:05.122] [UltimateDLC] [BM] equipped_armor_skin REAL → none
+[00:05.122] [UltimateDLC] [BM] equipped_player_style REAL → none
+[00:05.122] [UltimateDLC] [BM] equipped_glove_id REAL → default
+[00:05.122] [UltimateDLC] [BM] equipped_armor_skin REAL → none
+[00:05.122] [UltimateDLC] [BM] equipped_player_style REAL → none
+[00:05.122] [UltimateDLC] [BM] equipped_glove_id REAL → default
+[00:05.122] [UltimateDLC] [BM] equipped_armor_skin REAL → none
+[00:05.122] [UltimateDLC] [BM] equipped_player_style REAL → none
+[00:05.122] [UltimateDLC] [BM] equipped_glove_id REAL → default
+[00:05.122] [UltimateDLC] [BM] equipped_armor_skin REAL → none
+[00:05.122] [UltimateDLC] [BM] equipped_player_style REAL → none
+[00:05.122] [UltimateDLC] [BM] equipped_glove_id REAL → default
+[00:05.123] [UltimateDLC] [BM] equipped_armor_skin REAL → none
+[00:05.123] [UltimateDLC] [BM] equipped_player_style REAL → none
+[00:05.123] [UltimateDLC] [BM] equipped_glove_id REAL → default
+[00:05.123] [UltimateDLC] [BM] equipped_armor_skin REAL → none
+[00:05.123] [UltimateDLC] [BM] equipped_player_style REAL → none
+[00:05.123] [UltimateDLC] [BM] equipped_glove_id REAL → default
+[00:05.123] [UltimateDLC] [BM] equipped_armor_skin REAL → none
+[00:05.123] [UltimateDLC] [BM] equipped_player_style REAL → none
+[00:05.123] [UltimateDLC] [BM] equipped_glove_id REAL → default
+[00:05.123] [UltimateDLC] [BM] equipped_armor_skin REAL → none
+[00:05.123] [UltimateDLC] [BM] equipped_player_style REAL → none
+[00:05.123] [UltimateDLC] [BM] equipped_glove_id REAL → default
+[00:05.123] [UltimateDLC] [BM] equipped_armor_skin REAL → none
+[00:05.123] [UltimateDLC] [BM] equipped_player_style REAL → none
+[00:05.123] [UltimateDLC] [BM] equipped_glove_id REAL → default
+[00:05.123] [UltimateDLC] [BM] equipped_armor_skin REAL → none
+[00:05.123] [UltimateDLC] [BM] equipped_player_style REAL → none
+[00:05.123] [UltimateDLC] [BM] equipped_glove_id REAL → default
+[00:05.123] [UltimateDLC] [BM] equipped_armor_skin REAL → none
+[00:05.123] [UltimateDLC] [BM] equipped_player_style REAL → none
+[00:05.123] [UltimateDLC] [BM] equipped_glove_id REAL → default
+[00:05.123] [UltimateDLC] [BM] equipped_armor_skin REAL → none
+[00:05.123] [UltimateDLC] [BM] equipped_player_style REAL → none
+[00:05.123] [UltimateDLC] [BM] equipped_glove_id REAL → default
+[00:05.123] [UltimateDLC] [BM] equipped_armor_skin REAL → none
+[00:05.123] [UltimateDLC] [BM] equipped_player_style REAL → none
+[00:05.123] [UltimateDLC] [BM] equipped_glove_id REAL → default
+[00:05.123] [UltimateDLC] [BM] equipped_armor_skin REAL → none
+[00:05.123] [UltimateDLC] [BM] equipped_player_style REAL → none
+[00:05.123] [UltimateDLC] [BM] equipped_glove_id REAL → default
+[00:05.123] [UltimateDLC] [BM] equipped_armor_skin REAL → none
+[00:05.123] [UltimateDLC] [BM] equipped_player_style REAL → none
+[00:05.123] [UltimateDLC] [BM] equipped_glove_id REAL → default
+[00:05.123] [UltimateDLC] [BM] equipped_armor_skin REAL → none
+[00:05.123] [UltimateDLC] [BM] equipped_player_style REAL → none
+[00:05.123] [UltimateDLC] [BM] equipped_glove_id REAL → default
+[00:05.123] [UltimateDLC] [BM] equipped_armor_skin REAL → none
+[00:05.123] [UltimateDLC] [BM] equipped_player_style REAL → none
+[00:05.123] [UltimateDLC] [BM] equipped_glove_id REAL → default
+[00:05.123] [UltimateDLC] [BM] equipped_armor_skin REAL → none
+[00:05.123] [UltimateDLC] [BM] equipped_player_style REAL → none
+[00:05.123] [UltimateDLC] [BM] equipped_glove_id REAL → default
+[00:05.123] [UltimateDLC] [BM] equipped_armor_skin REAL → none
+[00:05.123] [UltimateDLC] [BM] equipped_player_style REAL → none
+[00:05.123] [UltimateDLC] [BM] equipped_glove_id REAL → default
+[00:05.123] [UltimateDLC] [BM] equipped_armor_skin REAL → none
+[00:05.123] [UltimateDLC] [BM] equipped_player_style REAL → none
+[00:05.123] [UltimateDLC] [BM] equipped_glove_id REAL → default
+[00:05.123] [UltimateDLC] [BM] equipped_armor_skin REAL → none
+[00:05.123] [UltimateDLC] [BM] equipped_player_style REAL → none
+[00:05.123] [UltimateDLC] [BM] equipped_glove_id REAL → default
+[00:05.123] [UltimateDLC] [BM] equipped_armor_skin REAL → none
+[00:05.123] [UltimateDLC] [BM] equipped_player_style REAL → none
+[00:05.124] [UltimateDLC] [BM] equipped_glove_id REAL → default
+[00:05.124] [UltimateDLC] [BM] equipped_armor_skin REAL → none
+[00:05.124] [UltimateDLC] [BM] equipped_player_style REAL → none
+[00:05.124] [UltimateDLC] [BM] equipped_glove_id REAL → default
+[00:05.124] [UltimateDLC] [BM] equipped_armor_skin REAL → none
+[00:05.124] [UltimateDLC] [BM] equipped_player_style REAL → none
+[00:05.124] [UltimateDLC] [BM] equipped_glove_id REAL → default
+[00:05.124] [UltimateDLC] [BM] equipped_armor_skin REAL → none
+[00:05.124] [UltimateDLC] [BM] equipped_player_style REAL → none
+[00:05.124] [UltimateDLC] [BM] equipped_glove_id REAL → default
+[00:05.160] [UltimateDLC] [BM] equipped_mask REAL → mask_id: character_locked
+[00:05.160] [UltimateDLC] [BM] equipped_armor_skin REAL → none
+[00:05.160] [UltimateDLC] [BM] equipped_player_style REAL → none
+[00:05.160] [UltimateDLC] [BM] equipped_player_style REAL → none
+[00:05.160] [UltimateDLC] [BM] equipped_glove_id REAL → default
+[00:05.160] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[00:05.160] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[00:05.160] [UltimateDLC] [BM] equipped_armor_skin REAL → none
+[00:05.317] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[00:05.317] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[00:05.318] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[00:05.318] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[00:05.319] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[00:05.319] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[00:05.464] [UltimateDLC] [BM] equipped_armor_skin REAL → none
+[00:09.193] [UltimateDLC] [BM] equipped_armor_skin REAL → none
+[00:09.219] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[00:09.219] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[02:40.916] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[02:40.917] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[02:42.112] [UltimateDLC] [BM] equipped_armor_skin REAL → none
+[02:42.113] [UltimateDLC] [BM] equipped_player_style REAL → none
+[02:42.113] [UltimateDLC] [BM] equipped_glove_id REAL → default
+[02:42.124] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[02:42.125] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[02:46.835] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[02:46.836] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[02:46.836] [UltimateDLC] [BM] equipped_mask REAL → mask_id: fib_cat
+[02:46.836] [UltimateDLC] [BM] equipped_player_style REAL → none
+[02:46.836] [UltimateDLC] [BM] equipped_glove_id REAL → default
+[02:46.836] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[02:46.836] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[02:46.840] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[02:46.840] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[02:46.840] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[02:46.840] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[02:46.840] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[02:46.840] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[02:46.840] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[02:46.840] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[02:46.841] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[02:46.841] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[02:46.841] [UltimateDLC] [BM] equipped_mask REAL → mask_id: fib_cat
+[02:46.841] [UltimateDLC] [BM] equipped_player_style REAL → none
+[02:46.841] [UltimateDLC] [BM] equipped_glove_id REAL → default
+[02:46.841] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[02:46.841] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[02:46.842] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[02:46.842] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[02:46.842] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[02:46.842] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[02:46.842] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[02:46.842] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[02:46.842] [UltimateDLC] [BM] equipped_mask REAL → mask_id: fib_cat
+[02:46.842] [UltimateDLC] [BM] equipped_player_style REAL → none
+[02:46.842] [UltimateDLC] [BM] equipped_glove_id REAL → default
+[02:46.842] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[02:46.843] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[02:46.843] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[02:46.843] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[02:46.843] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[02:46.843] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[02:46.843] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[02:46.843] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[02:46.843] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[02:46.843] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[02:46.843] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[02:46.844] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[02:46.844] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[02:46.844] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[02:46.844] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[02:46.844] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[02:46.844] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[02:46.844] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[02:46.844] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[02:46.844] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[02:46.844] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[02:46.844] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[02:46.844] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[02:46.844] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[02:46.847] [UltimateDLC] [BM] equipped_mask REAL → mask_id: fib_cat
+[02:46.847] [UltimateDLC] [BM] equipped_armor_skin REAL → none
+[02:46.847] [UltimateDLC] [BM] equipped_player_style REAL → none
+[02:46.847] [UltimateDLC] [BM] equipped_player_style REAL → none
+[02:46.847] [UltimateDLC] [BM] equipped_glove_id REAL → default
+[02:46.847] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[02:46.847] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[02:46.847] [UltimateDLC] [BM] equipped_armor_skin REAL → none
+[02:46.847] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[02:46.847] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[02:46.848] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[02:46.848] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[02:46.849] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[02:46.849] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[02:46.849] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[02:46.849] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[02:47.115] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[02:47.115] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[02:47.115] [UltimateDLC] [BM] equipped_mask REAL → mask_id: fib_cat
+[02:47.115] [UltimateDLC] [BM] equipped_player_style REAL → none
+[02:47.115] [UltimateDLC] [BM] equipped_glove_id REAL → default
+[02:47.115] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[02:47.116] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[02:47.117] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[02:47.118] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[02:47.119] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[02:47.119] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[02:47.180] [UltimateDLC] [BM] equipped_mask REAL → mask_id: fib_cat
+[02:47.310] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[02:47.310] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[02:47.310] [UltimateDLC] [BM] equipped_mask REAL → mask_id: fib_cat
+[02:47.311] [UltimateDLC] [BM] equipped_player_style REAL → none
+[02:47.311] [UltimateDLC] [BM] equipped_glove_id REAL → default
+[02:47.311] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[02:47.312] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[02:47.313] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[02:47.314] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[02:47.315] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[02:47.315] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[02:47.396] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[02:47.397] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[02:47.397] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[02:47.405] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[02:47.406] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[02:47.406] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[02:48.515] [UltimateDLC] [BM] equipped_armor_skin REAL → none
+[02:48.515] [UltimateDLC] [BM] equipped_player_style REAL → none
+[02:48.515] [UltimateDLC] [BM] equipped_glove_id REAL → default
+[02:48.523] [UltimateDLC] [BM] equipped_armor_skin REAL → none
+[02:48.523] [UltimateDLC] [BM] equipped_player_style REAL → none
+[02:48.523] [UltimateDLC] [BM] equipped_glove_id REAL → default
+[02:48.530] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[02:48.530] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[02:49.993] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[02:49.993] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[02:58.808] [UltimateDLC] [BM] _outfit_string_mask MASKED → safe mask string
+[02:58.808] [UltimateDLC] [BM] equipped_armor_skin MASKED → none
+[02:58.808] [UltimateDLC] [BM] equipped_player_style MASKED → suit
+[02:58.808] [UltimateDLC] [BM] equipped_player_style MASKED → suit
+[02:58.808] [UltimateDLC] [BM] equipped_glove_id MASKED → default
+[02:58.808] [UltimateDLC] [BM] equipped_primary MASKED → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[02:58.808] [UltimateDLC] [WFM] blueprint_to_string called | factory_id: wpn_fps_ass_amcar | blueprint type: table
+[02:58.808] [UltimateDLC] [WFM]   blueprint_to_string result: 1 2 3 5 52 6 45 44 
+[02:58.809] [UltimateDLC] [BM] equipped_secondary MASKED → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[02:58.809] [UltimateDLC] [WFM] blueprint_to_string called | factory_id: wpn_fps_pis_g17 | blueprint type: table
+[02:58.809] [UltimateDLC] [WFM]   blueprint_to_string result: 1 2 3 
+[02:58.809] [UltimateDLC] [BM] equipped_primary MASKED → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[02:58.809] [UltimateDLC] [BM] equipped_secondary MASKED → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[02:58.810] [UltimateDLC] [BM] outfit_string() → masked result:  character_locked plastic no_color_no_material nothing-nothing-strip_paint level_7-level_7-level_7-none-suit-default-def
+[02:58.810] [UltimateDLC] [CHEAT] verify_outfit BLOCKED for LOCAL peer (skipping entirely)
+[02:58.860] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[02:58.861] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[02:58.861] [UltimateDLC] [NET] >>> check_send_outfit CALLED for peer ?
+[02:58.861] [UltimateDLC] [NET] >>> check_send_outfit CALLED for peer ?
+[02:58.861] [UltimateDLC] [BM] _outfit_string_mask MASKED → safe mask string
+[02:58.861] [UltimateDLC] [BM] equipped_armor_skin MASKED → none
+[02:58.861] [UltimateDLC] [BM] equipped_player_style MASKED → suit
+[02:58.861] [UltimateDLC] [BM] equipped_player_style MASKED → suit
+[02:58.861] [UltimateDLC] [BM] equipped_glove_id MASKED → default
+[02:58.861] [UltimateDLC] [BM] equipped_primary MASKED → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[02:58.861] [UltimateDLC] [WFM] blueprint_to_string called | factory_id: wpn_fps_ass_amcar | blueprint type: table
+[02:58.861] [UltimateDLC] [WFM]   blueprint_to_string result: 1 2 3 5 52 6 45 44 
+[02:58.861] [UltimateDLC] [BM] equipped_secondary MASKED → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[02:58.861] [UltimateDLC] [WFM] blueprint_to_string called | factory_id: wpn_fps_pis_g17 | blueprint type: table
+[02:58.861] [UltimateDLC] [WFM]   blueprint_to_string result: 1 2 3 
+[02:58.861] [UltimateDLC] [BM] equipped_primary MASKED → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[02:58.862] [UltimateDLC] [BM] equipped_secondary MASKED → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[02:58.862] [UltimateDLC] [BM] outfit_string() → masked result:  character_locked plastic no_color_no_material nothing-nothing-strip_paint level_7-level_7-level_7-none-suit-default-def
+[03:36.146] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[03:36.146] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[03:37.240] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[03:37.240] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[03:42.224] [UltimateDLC] [BM] _outfit_string_mask MASKED → safe mask string
+[03:42.224] [UltimateDLC] [BM] equipped_armor_skin MASKED → none
+[03:42.224] [UltimateDLC] [BM] equipped_player_style MASKED → suit
+[03:42.224] [UltimateDLC] [BM] equipped_player_style MASKED → suit
+[03:42.224] [UltimateDLC] [BM] equipped_glove_id MASKED → default
+[03:42.224] [UltimateDLC] [BM] equipped_primary MASKED → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[03:42.224] [UltimateDLC] [WFM] blueprint_to_string called | factory_id: wpn_fps_ass_amcar | blueprint type: table
+[03:42.224] [UltimateDLC] [WFM]   blueprint_to_string result: 1 2 3 5 52 6 45 44 
+[03:42.224] [UltimateDLC] [BM] equipped_secondary MASKED → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[03:42.224] [UltimateDLC] [WFM] blueprint_to_string called | factory_id: wpn_fps_pis_g17 | blueprint type: table
+[03:42.224] [UltimateDLC] [WFM]   blueprint_to_string result: 1 2 3 
+[03:42.224] [UltimateDLC] [BM] equipped_primary MASKED → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[03:42.224] [UltimateDLC] [BM] equipped_secondary MASKED → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[03:42.224] [UltimateDLC] [BM] outfit_string() → masked result:  character_locked plastic no_color_no_material nothing-nothing-strip_paint level_7-level_7-level_7-none-suit-default-def
+[03:42.224] [UltimateDLC] [CHEAT] verify_outfit BLOCKED for LOCAL peer (skipping entirely)
+[03:42.234] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[03:42.234] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[03:42.234] [UltimateDLC] [NET] >>> check_send_outfit CALLED for peer ?
+[03:42.234] [UltimateDLC] [NET] >>> check_send_outfit CALLED for peer ?
+[03:42.234] [UltimateDLC] [BM] _outfit_string_mask MASKED → safe mask string
+[03:42.235] [UltimateDLC] [BM] equipped_armor_skin MASKED → none
+[03:42.235] [UltimateDLC] [BM] equipped_player_style MASKED → suit
+[03:42.235] [UltimateDLC] [BM] equipped_player_style MASKED → suit
+[03:42.235] [UltimateDLC] [BM] equipped_glove_id MASKED → default
+[03:42.235] [UltimateDLC] [BM] equipped_primary MASKED → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[03:42.235] [UltimateDLC] [WFM] blueprint_to_string called | factory_id: wpn_fps_ass_amcar | blueprint type: table
+[03:42.235] [UltimateDLC] [WFM]   blueprint_to_string result: 1 2 3 5 52 6 45 44 
+[03:42.235] [UltimateDLC] [BM] equipped_secondary MASKED → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[03:42.235] [UltimateDLC] [WFM] blueprint_to_string called | factory_id: wpn_fps_pis_g17 | blueprint type: table
+[03:42.235] [UltimateDLC] [WFM]   blueprint_to_string result: 1 2 3 
+[03:42.235] [UltimateDLC] [BM] equipped_primary MASKED → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[03:42.235] [UltimateDLC] [BM] equipped_secondary MASKED → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[03:42.235] [UltimateDLC] [BM] outfit_string() → masked result:  character_locked plastic no_color_no_material nothing-nothing-strip_paint level_7-level_7-level_7-none-suit-default-def
+[03:45.493] [UltimateDLC] [CHEAT] verify_character BLOCKED for LOCAL peer
+[03:48.375] [UltimateDLC] [SYSTEM] Debug module loaded. console_opened=true
+[03:48.375] [UltimateDLC] [DLC] Unlocking DLC class #1: table: 0x48872e40
+[03:48.375] [UltimateDLC] [DLC]   Applying unlock overrides...
+[03:48.375] [UltimateDLC] [DLC] Unlocking DLC class #2: table: 0x48872ec0
+[03:48.375] [UltimateDLC] [DLC]   Applying unlock overrides...
+[03:48.375] [UltimateDLC] [DLC] Unlocking DLC class #3: table: 0x48872f40
+[03:48.375] [UltimateDLC] [DLC]   Applying unlock overrides...
+[03:48.375] [UltimateDLC] [DLC] Running immediate startup unlock pass...
+[03:48.375] [UltimateDLC] [DLC] DLC Manager fully initialized.
+[03:48.375] [UltimateDLC] [DLC] PostHook fired: UltimateDLC_Generic_Init
+[03:48.375] [UltimateDLC] [DLC]   Applying unlock overrides...
+[03:48.376] [UltimateDLC] [DLC] PostHook fired: UltimateDLC_WIN_Init
+[03:48.376] [UltimateDLC] [DLC]   Already unlocked, skipping
+[03:48.376] [UltimateDLC] [DLC] PostHook fired: UltimateDLC_WinSteam_Init
+[03:48.376] [UltimateDLC] [DLC]   Already unlocked, skipping
+[03:48.738] [UltimateDLC] [BM] BlackMarket Manager and Weapon Factory hooks initialized.
+[03:48.741] [UltimateDLC] [BM] BlackMarket Manager and Weapon Factory hooks initialized.
+[03:48.792] [UltimateDLC] [BM] BlackMarket Manager and Weapon Factory hooks initialized.
+[03:48.987] [UltimateDLC] [NET] WARNING: BaseNetworkSession is NIL — check_send_outfit hook SKIPPED
+[03:48.987] [UltimateDLC] [NET] WARNING: NetworkPeer is NIL — cheater hooks SKIPPED
+[03:48.987] [UltimateDLC] [NET] network_mask.lua fully loaded — ALL cheater paths hooked (6 layers)
+[03:49.261] [UltimateDLC] [NET] BaseNetworkSession detected — hooking check_send_outfit
+[03:49.261] [UltimateDLC] [NET] WARNING: NetworkPeer is NIL — cheater hooks SKIPPED
+[03:49.261] [UltimateDLC] [NET] network_mask.lua fully loaded — ALL cheater paths hooked (6 layers)
+[03:49.267] [UltimateDLC] [NET] BaseNetworkSession detected — hooking check_send_outfit
+[03:49.268] [UltimateDLC] [NET] NetworkPeer detected — hooking ALL cheater paths
+[03:49.268] [UltimateDLC] [NET] network_mask.lua fully loaded — ALL cheater paths hooked (6 layers)
+[03:51.765] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: m249 | factory_id: wpn_fps_lmg_m249
+[03:51.766] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: vityaz | factory_id: wpn_fps_smg_vityaz
+[03:51.768] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: m249 | factory_id: wpn_fps_lmg_m249
+[03:51.768] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: vityaz | factory_id: wpn_fps_smg_vityaz
+[03:51.768] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: m249 | factory_id: wpn_fps_lmg_m249
+[03:51.768] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: vityaz | factory_id: wpn_fps_smg_vityaz
+[03:51.885] [UltimateDLC] [NET] >>> check_send_outfit CALLED for peer ?
+[03:51.885] [UltimateDLC] [NET] >>> check_send_outfit CALLED for peer ?
+[03:51.885] [UltimateDLC] [BM] _outfit_string_mask MASKED → safe mask string
+[03:51.885] [UltimateDLC] [BM] equipped_armor_skin MASKED → none
+[03:51.885] [UltimateDLC] [BM] equipped_player_style MASKED → suit
+[03:51.885] [UltimateDLC] [BM] equipped_player_style MASKED → suit
+[03:51.885] [UltimateDLC] [BM] equipped_glove_id MASKED → default
+[03:51.885] [UltimateDLC] [BM] equipped_primary MASKED → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[03:51.885] [UltimateDLC] [WFM] blueprint_to_string called | factory_id: wpn_fps_ass_amcar | blueprint type: table
+[03:51.886] [UltimateDLC] [WFM]   blueprint_to_string result: 1 2 3 5 52 6 45 44 
+[03:51.886] [UltimateDLC] [BM] equipped_secondary MASKED → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[03:51.886] [UltimateDLC] [WFM] blueprint_to_string called | factory_id: wpn_fps_pis_g17 | blueprint type: table
+[03:51.886] [UltimateDLC] [WFM]   blueprint_to_string result: 1 2 3 
+[03:51.886] [UltimateDLC] [BM] equipped_primary MASKED → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[03:51.886] [UltimateDLC] [BM] equipped_secondary MASKED → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[03:51.886] [UltimateDLC] [BM] outfit_string() → masked result:  character_locked plastic no_color_no_material nothing-nothing-strip_paint level_7-level_7-level_7-none-suit-default-def
+[03:51.886] [UltimateDLC] [BM] _outfit_string_mask MASKED → safe mask string
+[03:51.886] [UltimateDLC] [BM] equipped_armor_skin MASKED → none
+[03:51.886] [UltimateDLC] [BM] equipped_player_style MASKED → suit
+[03:51.886] [UltimateDLC] [BM] equipped_player_style MASKED → suit
+[03:51.886] [UltimateDLC] [BM] equipped_glove_id MASKED → default
+[03:51.886] [UltimateDLC] [BM] equipped_primary MASKED → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[03:51.886] [UltimateDLC] [WFM] blueprint_to_string called | factory_id: wpn_fps_ass_amcar | blueprint type: table
+[03:51.886] [UltimateDLC] [WFM]   blueprint_to_string result: 1 2 3 5 52 6 45 44 
+[03:51.886] [UltimateDLC] [BM] equipped_secondary MASKED → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[03:51.886] [UltimateDLC] [WFM] blueprint_to_string called | factory_id: wpn_fps_pis_g17 | blueprint type: table
+[03:51.886] [UltimateDLC] [WFM]   blueprint_to_string result: 1 2 3 
+[03:51.886] [UltimateDLC] [BM] equipped_primary MASKED → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[03:51.886] [UltimateDLC] [BM] equipped_secondary MASKED → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[03:51.886] [UltimateDLC] [BM] outfit_string() → masked result:  character_locked plastic no_color_no_material nothing-nothing-strip_paint level_7-level_7-level_7-none-suit-default-def
+[03:51.888] [UltimateDLC] [NET] >>> check_send_outfit CALLED for peer ?
+[03:51.888] [UltimateDLC] [NET] >>> check_send_outfit CALLED for peer ?
+[03:51.888] [UltimateDLC] [BM] _outfit_string_mask MASKED → safe mask string
+[03:51.888] [UltimateDLC] [BM] equipped_armor_skin MASKED → none
+[03:51.888] [UltimateDLC] [BM] equipped_player_style MASKED → suit
+[03:51.888] [UltimateDLC] [BM] equipped_player_style MASKED → suit
+[03:51.888] [UltimateDLC] [BM] equipped_glove_id MASKED → default
+[03:51.888] [UltimateDLC] [BM] equipped_primary MASKED → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[03:51.888] [UltimateDLC] [WFM] blueprint_to_string called | factory_id: wpn_fps_ass_amcar | blueprint type: table
+[03:51.888] [UltimateDLC] [WFM]   blueprint_to_string result: 1 2 3 5 52 6 45 44 
+[03:51.888] [UltimateDLC] [BM] equipped_secondary MASKED → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[03:51.888] [UltimateDLC] [WFM] blueprint_to_string called | factory_id: wpn_fps_pis_g17 | blueprint type: table
+[03:51.888] [UltimateDLC] [WFM]   blueprint_to_string result: 1 2 3 
+[03:51.888] [UltimateDLC] [BM] equipped_primary MASKED → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[03:51.888] [UltimateDLC] [BM] equipped_secondary MASKED → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[03:51.888] [UltimateDLC] [BM] outfit_string() → masked result:  character_locked plastic no_color_no_material nothing-nothing-strip_paint level_7-level_7-level_7-none-suit-default-def
+[03:51.888] [UltimateDLC] [NET] >>> check_send_outfit CALLED for peer 1
+[03:51.888] [UltimateDLC] [NET] >>> check_send_outfit CALLED for peer 1
+[03:51.888] [UltimateDLC] [BM] _outfit_string_mask MASKED → safe mask string
+[03:51.888] [UltimateDLC] [BM] equipped_armor_skin MASKED → none
+[03:51.888] [UltimateDLC] [BM] equipped_player_style MASKED → suit
+[03:51.888] [UltimateDLC] [BM] equipped_player_style MASKED → suit
+[03:51.888] [UltimateDLC] [BM] equipped_glove_id MASKED → default
+[03:51.888] [UltimateDLC] [BM] equipped_primary MASKED → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[03:51.888] [UltimateDLC] [WFM] blueprint_to_string called | factory_id: wpn_fps_ass_amcar | blueprint type: table
+[03:51.888] [UltimateDLC] [WFM]   blueprint_to_string result: 1 2 3 5 52 6 45 44 
+[03:51.888] [UltimateDLC] [BM] equipped_secondary MASKED → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[03:51.889] [UltimateDLC] [WFM] blueprint_to_string called | factory_id: wpn_fps_pis_g17 | blueprint type: table
+[03:51.889] [UltimateDLC] [WFM]   blueprint_to_string result: 1 2 3 
+[03:51.889] [UltimateDLC] [BM] equipped_primary MASKED → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[03:51.889] [UltimateDLC] [BM] equipped_secondary MASKED → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[03:51.889] [UltimateDLC] [BM] outfit_string() → masked result:  character_locked plastic no_color_no_material nothing-nothing-strip_paint level_7-level_7-level_7-none-suit-default-def
+[03:51.910] [UltimateDLC] [BM] equipped_armor_skin REAL → none
+[03:51.961] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: m249 | factory_id: wpn_fps_lmg_m249
+[03:51.961] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: vityaz | factory_id: wpn_fps_smg_vityaz
+[03:51.961] [UltimateDLC] [BM] equipped_mask REAL → mask_id: fib_cat
+[03:51.961] [UltimateDLC] [BM] equipped_player_style REAL → none
+[03:51.961] [UltimateDLC] [BM] equipped_glove_id REAL → default
+[03:51.961] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: m249 | factory_id: wpn_fps_lmg_m249
+[03:51.962] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: vityaz | factory_id: wpn_fps_smg_vityaz
+[03:51.972] [UltimateDLC] [BM] _outfit_string_mask MASKED → safe mask string
+[03:51.972] [UltimateDLC] [BM] equipped_armor_skin MASKED → none
+[03:51.972] [UltimateDLC] [BM] equipped_player_style MASKED → suit
+[03:51.972] [UltimateDLC] [BM] equipped_player_style MASKED → suit
+[03:51.972] [UltimateDLC] [BM] equipped_glove_id MASKED → default
+[03:51.972] [UltimateDLC] [BM] equipped_primary MASKED → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[03:51.972] [UltimateDLC] [WFM] blueprint_to_string called | factory_id: wpn_fps_ass_amcar | blueprint type: table
+[03:51.972] [UltimateDLC] [WFM]   blueprint_to_string result: 1 2 3 5 52 6 45 44 
+[03:51.972] [UltimateDLC] [BM] equipped_secondary MASKED → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[03:51.972] [UltimateDLC] [WFM] blueprint_to_string called | factory_id: wpn_fps_pis_g17 | blueprint type: table
+[03:51.972] [UltimateDLC] [WFM]   blueprint_to_string result: 1 2 3 
+[03:51.972] [UltimateDLC] [BM] equipped_primary MASKED → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[03:51.972] [UltimateDLC] [BM] equipped_secondary MASKED → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[03:51.972] [UltimateDLC] [BM] outfit_string() → masked result:  character_locked plastic no_color_no_material nothing-nothing-strip_paint level_7-level_7-level_7-none-suit-default-def
+[03:52.105] [UltimateDLC] [CHEAT] !!! mark_cheater CALLED | peer=1 | reason=9 | kick=false
+[03:52.105] [UltimateDLC] [CHEAT] !!! HUDManager:mark_cheater | peer_id=1 | local_id=3
+[03:52.471] [UltimateDLC] [NET] >>> check_send_outfit CALLED for peer ?
+[03:52.471] [UltimateDLC] [NET] >>> check_send_outfit CALLED for peer ?
+[03:52.471] [UltimateDLC] [BM] _outfit_string_mask MASKED → safe mask string
+[03:52.471] [UltimateDLC] [BM] equipped_armor_skin MASKED → none
+[03:52.471] [UltimateDLC] [BM] equipped_player_style MASKED → suit
+[03:52.471] [UltimateDLC] [BM] equipped_player_style MASKED → suit
+[03:52.471] [UltimateDLC] [BM] equipped_glove_id MASKED → default
+[03:52.471] [UltimateDLC] [BM] equipped_primary MASKED → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[03:52.471] [UltimateDLC] [WFM] blueprint_to_string called | factory_id: wpn_fps_ass_amcar | blueprint type: table
+[03:52.471] [UltimateDLC] [WFM]   blueprint_to_string result: 1 2 3 5 52 6 45 44 
+[03:52.471] [UltimateDLC] [BM] equipped_secondary MASKED → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[03:52.471] [UltimateDLC] [WFM] blueprint_to_string called | factory_id: wpn_fps_pis_g17 | blueprint type: table
+[03:52.471] [UltimateDLC] [WFM]   blueprint_to_string result: 1 2 3 
+[03:52.471] [UltimateDLC] [BM] equipped_primary MASKED → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[03:52.471] [UltimateDLC] [BM] equipped_secondary MASKED → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[03:52.471] [UltimateDLC] [BM] outfit_string() → masked result:  character_locked plastic no_color_no_material nothing-nothing-strip_paint level_7-level_7-level_7-none-suit-default-def
+[03:52.472] [UltimateDLC] [NET] >>> check_send_outfit CALLED for peer 2
+[03:52.472] [UltimateDLC] [NET] >>> check_send_outfit CALLED for peer 2
+[03:52.472] [UltimateDLC] [BM] _outfit_string_mask MASKED → safe mask string
+[03:52.472] [UltimateDLC] [BM] equipped_armor_skin MASKED → none
+[03:52.472] [UltimateDLC] [BM] equipped_player_style MASKED → suit
+[03:52.472] [UltimateDLC] [BM] equipped_player_style MASKED → suit
+[03:52.472] [UltimateDLC] [BM] equipped_glove_id MASKED → default
+[03:52.472] [UltimateDLC] [BM] equipped_primary MASKED → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[03:52.472] [UltimateDLC] [WFM] blueprint_to_string called | factory_id: wpn_fps_ass_amcar | blueprint type: table
+[03:52.472] [UltimateDLC] [WFM]   blueprint_to_string result: 1 2 3 5 52 6 45 44 
+[03:52.472] [UltimateDLC] [BM] equipped_secondary MASKED → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[03:52.472] [UltimateDLC] [WFM] blueprint_to_string called | factory_id: wpn_fps_pis_g17 | blueprint type: table
+[03:52.472] [UltimateDLC] [WFM]   blueprint_to_string result: 1 2 3 
+[03:52.472] [UltimateDLC] [BM] equipped_primary MASKED → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[03:52.472] [UltimateDLC] [BM] equipped_secondary MASKED → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[03:52.472] [UltimateDLC] [BM] outfit_string() → masked result:  character_locked plastic no_color_no_material nothing-nothing-strip_paint level_7-level_7-level_7-none-suit-default-def
+[04:03.226] [UltimateDLC] [BM] equipped_armor_skin REAL → none
+[04:03.226] [UltimateDLC] [BM] equipped_player_style REAL → none
+[04:03.226] [UltimateDLC] [BM] equipped_glove_id REAL → default
+[04:03.228] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: x_hajk | factory_id: wpn_fps_smg_x_hajk
+[04:03.228] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: x_hajk | factory_id: wpn_fps_smg_x_hajk
+[04:03.228] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: vityaz | factory_id: wpn_fps_smg_vityaz
+[04:03.229] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: x_hajk | factory_id: wpn_fps_smg_x_hajk
+[04:03.229] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: vityaz | factory_id: wpn_fps_smg_vityaz
+[04:03.231] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: judge | factory_id: wpn_fps_pis_judge
+[04:03.231] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: x_hajk | factory_id: wpn_fps_smg_x_hajk
+[04:03.231] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: judge | factory_id: wpn_fps_pis_judge
+[04:03.231] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: x_hajk | factory_id: wpn_fps_smg_x_hajk
+[04:03.231] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: judge | factory_id: wpn_fps_pis_judge
+[04:03.231] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: x_hajk | factory_id: wpn_fps_smg_x_hajk
+[04:03.232] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: judge | factory_id: wpn_fps_pis_judge
+[04:03.232] [UltimateDLC] [BM] equipped_armor_skin REAL → none
+[04:03.232] [UltimateDLC] [BM] equipped_player_style REAL → none
+[04:03.232] [UltimateDLC] [BM] equipped_mask REAL → mask_id: fib_cat
+[04:03.233] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: x_hajk | factory_id: wpn_fps_smg_x_hajk
+[04:03.233] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: judge | factory_id: wpn_fps_pis_judge
+[04:03.233] [UltimateDLC] [BM] equipped_mask REAL → mask_id: fib_cat
+[04:03.233] [UltimateDLC] [BM] equipped_player_style REAL → none
+[04:03.233] [UltimateDLC] [BM] equipped_glove_id REAL → default
+[04:03.233] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: x_hajk | factory_id: wpn_fps_smg_x_hajk
+[04:03.234] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: judge | factory_id: wpn_fps_pis_judge
+[04:03.247] [UltimateDLC] [BM] _outfit_string_mask MASKED → safe mask string
+[04:03.247] [UltimateDLC] [BM] equipped_armor_skin MASKED → none
+[04:03.247] [UltimateDLC] [BM] equipped_player_style MASKED → suit
+[04:03.247] [UltimateDLC] [BM] equipped_player_style MASKED → suit
+[04:03.247] [UltimateDLC] [BM] equipped_glove_id MASKED → default
+[04:03.247] [UltimateDLC] [BM] equipped_primary MASKED → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[04:03.248] [UltimateDLC] [WFM] blueprint_to_string called | factory_id: wpn_fps_ass_amcar | blueprint type: table
+[04:03.248] [UltimateDLC] [WFM]   blueprint_to_string result: 1 2 3 5 52 6 45 44 
+[04:03.248] [UltimateDLC] [BM] equipped_secondary MASKED → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[04:03.248] [UltimateDLC] [WFM] blueprint_to_string called | factory_id: wpn_fps_pis_g17 | blueprint type: table
+[04:03.248] [UltimateDLC] [WFM]   blueprint_to_string result: 1 2 3 
+[04:03.248] [UltimateDLC] [BM] equipped_primary MASKED → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[04:03.248] [UltimateDLC] [BM] equipped_secondary MASKED → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[04:03.248] [UltimateDLC] [BM] outfit_string() → masked result:  character_locked plastic no_color_no_material nothing-nothing-strip_paint level_6-level_6-level_6-none-suit-default-def
+[04:03.249] [UltimateDLC] [CHEAT] verify_outfit BLOCKED for LOCAL peer (skipping entirely)
+[04:03.250] [UltimateDLC] [NET] >>> check_send_outfit CALLED for peer ?
+[04:03.251] [UltimateDLC] [NET] >>> check_send_outfit CALLED for peer ?
+[04:03.251] [UltimateDLC] [BM] _outfit_string_mask MASKED → safe mask string
+[04:03.251] [UltimateDLC] [BM] equipped_armor_skin MASKED → none
+[04:03.251] [UltimateDLC] [BM] equipped_player_style MASKED → suit
+[04:03.251] [UltimateDLC] [BM] equipped_player_style MASKED → suit
+[04:03.251] [UltimateDLC] [BM] equipped_glove_id MASKED → default
+[04:03.251] [UltimateDLC] [BM] equipped_primary MASKED → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[04:03.251] [UltimateDLC] [WFM] blueprint_to_string called | factory_id: wpn_fps_ass_amcar | blueprint type: table
+[04:03.251] [UltimateDLC] [WFM]   blueprint_to_string result: 1 2 3 5 52 6 45 44 
+[04:03.251] [UltimateDLC] [BM] equipped_secondary MASKED → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[04:03.251] [UltimateDLC] [WFM] blueprint_to_string called | factory_id: wpn_fps_pis_g17 | blueprint type: table
+[04:03.251] [UltimateDLC] [WFM]   blueprint_to_string result: 1 2 3 
+[04:03.251] [UltimateDLC] [BM] equipped_primary MASKED → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[04:03.251] [UltimateDLC] [BM] equipped_secondary MASKED → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[04:03.251] [UltimateDLC] [BM] outfit_string() → masked result:  character_locked plastic no_color_no_material nothing-nothing-strip_paint level_6-level_6-level_6-none-suit-default-def
+[04:03.251] [UltimateDLC] [BM] equipped_mask REAL → mask_id: fib_cat
+[04:03.251] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: x_hajk | factory_id: wpn_fps_smg_x_hajk
+[04:03.251] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: judge | factory_id: wpn_fps_pis_judge
+[04:03.251] [UltimateDLC] [BM] equipped_player_style REAL → none
+[04:03.251] [UltimateDLC] [BM] equipped_player_style REAL → none
+[04:03.251] [UltimateDLC] [BM] equipped_suit_variation REAL → default
+[04:03.251] [UltimateDLC] [BM] equipped_glove_id REAL → default
+[04:03.255] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: x_hajk | factory_id: wpn_fps_smg_x_hajk
+[04:03.255] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: judge | factory_id: wpn_fps_pis_judge
+[04:03.255] [UltimateDLC] [NET] >>> check_send_outfit CALLED for peer ?
+[04:03.255] [UltimateDLC] [NET] >>> check_send_outfit CALLED for peer ?
+[04:03.255] [UltimateDLC] [BM] _outfit_string_mask MASKED → safe mask string
+[04:03.255] [UltimateDLC] [BM] equipped_armor_skin MASKED → none
+[04:03.255] [UltimateDLC] [BM] equipped_player_style MASKED → suit
+[04:03.255] [UltimateDLC] [BM] equipped_player_style MASKED → suit
+[04:03.255] [UltimateDLC] [BM] equipped_glove_id MASKED → default
+[04:03.255] [UltimateDLC] [BM] equipped_primary MASKED → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[04:03.255] [UltimateDLC] [WFM] blueprint_to_string called | factory_id: wpn_fps_ass_amcar | blueprint type: table
+[04:03.255] [UltimateDLC] [WFM]   blueprint_to_string result: 1 2 3 5 52 6 45 44 
+[04:03.255] [UltimateDLC] [BM] equipped_secondary MASKED → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[04:03.256] [UltimateDLC] [WFM] blueprint_to_string called | factory_id: wpn_fps_pis_g17 | blueprint type: table
+[04:03.256] [UltimateDLC] [WFM]   blueprint_to_string result: 1 2 3 
+[04:03.256] [UltimateDLC] [BM] equipped_primary MASKED → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[04:03.256] [UltimateDLC] [BM] equipped_secondary MASKED → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[04:03.256] [UltimateDLC] [BM] outfit_string() → masked result:  character_locked plastic no_color_no_material nothing-nothing-strip_paint level_6-level_6-level_6-none-suit-default-def
+[04:04.320] [UltimateDLC] [BM] equipped_armor_skin REAL → none
+[04:04.320] [UltimateDLC] [BM] equipped_player_style REAL → none
+[04:04.320] [UltimateDLC] [BM] equipped_glove_id REAL → default
+[04:04.321] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: m249 | factory_id: wpn_fps_lmg_m249
+[04:04.321] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: m249 | factory_id: wpn_fps_lmg_m249
+[04:04.321] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: judge | factory_id: wpn_fps_pis_judge
+[04:04.321] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: m249 | factory_id: wpn_fps_lmg_m249
+[04:04.322] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: judge | factory_id: wpn_fps_pis_judge
+[04:04.322] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: vityaz | factory_id: wpn_fps_smg_vityaz
+[04:04.322] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: m249 | factory_id: wpn_fps_lmg_m249
+[04:04.322] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: vityaz | factory_id: wpn_fps_smg_vityaz
+[04:04.322] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: m249 | factory_id: wpn_fps_lmg_m249
+[04:04.323] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: vityaz | factory_id: wpn_fps_smg_vityaz
+[04:04.324] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: m249 | factory_id: wpn_fps_lmg_m249
+[04:04.324] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: vityaz | factory_id: wpn_fps_smg_vityaz
+[04:04.324] [UltimateDLC] [BM] equipped_armor_skin REAL → none
+[04:04.324] [UltimateDLC] [BM] equipped_player_style REAL → none
+[04:04.324] [UltimateDLC] [BM] equipped_mask REAL → mask_id: fib_cat
+[04:04.325] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: m249 | factory_id: wpn_fps_lmg_m249
+[04:04.325] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: vityaz | factory_id: wpn_fps_smg_vityaz
+[04:04.325] [UltimateDLC] [BM] equipped_mask REAL → mask_id: fib_cat
+[04:04.325] [UltimateDLC] [BM] equipped_player_style REAL → none
+[04:04.325] [UltimateDLC] [BM] equipped_glove_id REAL → default
+[04:04.325] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: m249 | factory_id: wpn_fps_lmg_m249
+[04:04.326] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: vityaz | factory_id: wpn_fps_smg_vityaz
+[04:04.338] [UltimateDLC] [BM] _outfit_string_mask MASKED → safe mask string
+[04:04.338] [UltimateDLC] [BM] equipped_armor_skin MASKED → none
+[04:04.338] [UltimateDLC] [BM] equipped_player_style MASKED → suit
+[04:04.338] [UltimateDLC] [BM] equipped_player_style MASKED → suit
+[04:04.338] [UltimateDLC] [BM] equipped_glove_id MASKED → default
+[04:04.338] [UltimateDLC] [BM] equipped_primary MASKED → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[04:04.338] [UltimateDLC] [WFM] blueprint_to_string called | factory_id: wpn_fps_ass_amcar | blueprint type: table
+[04:04.338] [UltimateDLC] [WFM]   blueprint_to_string result: 1 2 3 5 52 6 45 44 
+[04:04.338] [UltimateDLC] [BM] equipped_secondary MASKED → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[04:04.338] [UltimateDLC] [WFM] blueprint_to_string called | factory_id: wpn_fps_pis_g17 | blueprint type: table
+[04:04.338] [UltimateDLC] [WFM]   blueprint_to_string result: 1 2 3 
+[04:04.338] [UltimateDLC] [BM] equipped_primary MASKED → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[04:04.339] [UltimateDLC] [BM] equipped_secondary MASKED → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[04:04.339] [UltimateDLC] [BM] outfit_string() → masked result:  character_locked plastic no_color_no_material nothing-nothing-strip_paint level_7-level_7-level_7-none-suit-default-def
+[04:04.340] [UltimateDLC] [CHEAT] verify_outfit BLOCKED for LOCAL peer (skipping entirely)
+[04:04.341] [UltimateDLC] [NET] >>> check_send_outfit CALLED for peer ?
+[04:04.341] [UltimateDLC] [NET] >>> check_send_outfit CALLED for peer ?
+[04:04.341] [UltimateDLC] [BM] _outfit_string_mask MASKED → safe mask string
+[04:04.341] [UltimateDLC] [BM] equipped_armor_skin MASKED → none
+[04:04.341] [UltimateDLC] [BM] equipped_player_style MASKED → suit
+[04:04.341] [UltimateDLC] [BM] equipped_player_style MASKED → suit
+[04:04.341] [UltimateDLC] [BM] equipped_glove_id MASKED → default
+[04:04.341] [UltimateDLC] [BM] equipped_primary MASKED → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[04:04.341] [UltimateDLC] [WFM] blueprint_to_string called | factory_id: wpn_fps_ass_amcar | blueprint type: table
+[04:04.341] [UltimateDLC] [WFM]   blueprint_to_string result: 1 2 3 5 52 6 45 44 
+[04:04.341] [UltimateDLC] [BM] equipped_secondary MASKED → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[04:04.341] [UltimateDLC] [WFM] blueprint_to_string called | factory_id: wpn_fps_pis_g17 | blueprint type: table
+[04:04.341] [UltimateDLC] [WFM]   blueprint_to_string result: 1 2 3 
+[04:04.341] [UltimateDLC] [BM] equipped_primary MASKED → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[04:04.341] [UltimateDLC] [BM] equipped_secondary MASKED → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[04:04.341] [UltimateDLC] [BM] outfit_string() → masked result:  character_locked plastic no_color_no_material nothing-nothing-strip_paint level_7-level_7-level_7-none-suit-default-def
+[04:04.341] [UltimateDLC] [BM] equipped_mask REAL → mask_id: fib_cat
+[04:04.341] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: m249 | factory_id: wpn_fps_lmg_m249
+[04:04.341] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: vityaz | factory_id: wpn_fps_smg_vityaz
+[04:04.341] [UltimateDLC] [BM] equipped_player_style REAL → none
+[04:04.341] [UltimateDLC] [BM] equipped_player_style REAL → none
+[04:04.341] [UltimateDLC] [BM] equipped_suit_variation REAL → default
+[04:04.341] [UltimateDLC] [BM] equipped_glove_id REAL → default
+[04:04.345] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: m249 | factory_id: wpn_fps_lmg_m249
+[04:04.345] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: vityaz | factory_id: wpn_fps_smg_vityaz
+[04:04.346] [UltimateDLC] [NET] >>> check_send_outfit CALLED for peer ?
+[04:04.346] [UltimateDLC] [NET] >>> check_send_outfit CALLED for peer ?
+[04:04.346] [UltimateDLC] [BM] _outfit_string_mask MASKED → safe mask string
+[04:04.346] [UltimateDLC] [BM] equipped_armor_skin MASKED → none
+[04:04.346] [UltimateDLC] [BM] equipped_player_style MASKED → suit
+[04:04.346] [UltimateDLC] [BM] equipped_player_style MASKED → suit
+[04:04.346] [UltimateDLC] [BM] equipped_glove_id MASKED → default
+[04:04.346] [UltimateDLC] [BM] equipped_primary MASKED → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[04:04.346] [UltimateDLC] [WFM] blueprint_to_string called | factory_id: wpn_fps_ass_amcar | blueprint type: table
+[04:04.346] [UltimateDLC] [WFM]   blueprint_to_string result: 1 2 3 5 52 6 45 44 
+[04:04.346] [UltimateDLC] [BM] equipped_secondary MASKED → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[04:04.346] [UltimateDLC] [WFM] blueprint_to_string called | factory_id: wpn_fps_pis_g17 | blueprint type: table
+[04:04.346] [UltimateDLC] [WFM]   blueprint_to_string result: 1 2 3 
+[04:04.346] [UltimateDLC] [BM] equipped_primary MASKED → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[04:04.346] [UltimateDLC] [BM] equipped_secondary MASKED → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[04:04.346] [UltimateDLC] [BM] outfit_string() → masked result:  character_locked plastic no_color_no_material nothing-nothing-strip_paint level_7-level_7-level_7-none-suit-default-def
+[04:28.896] [UltimateDLC] [BM] equipped_armor_skin REAL → none
+[04:28.896] [UltimateDLC] [BM] equipped_player_style REAL → none
+[04:28.896] [UltimateDLC] [BM] equipped_glove_id REAL → default
+[04:28.913] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: m249 | factory_id: wpn_fps_lmg_m249
+[04:28.913] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: vityaz | factory_id: wpn_fps_smg_vityaz
+[04:28.913] [UltimateDLC] [BM] equipped_mask REAL → mask_id: fib_cat
+[04:28.913] [UltimateDLC] [BM] equipped_player_style REAL → none
+[04:28.913] [UltimateDLC] [BM] equipped_glove_id REAL → default
+[04:28.913] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: m249 | factory_id: wpn_fps_lmg_m249
+[04:28.914] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: vityaz | factory_id: wpn_fps_smg_vityaz
+[04:31.638] [UltimateDLC] [SYSTEM] Debug module loaded. console_opened=true
+[04:31.639] [UltimateDLC] [DLC] Unlocking DLC class #1: table: 0x90293a80
+[04:31.639] [UltimateDLC] [DLC]   Applying unlock overrides...
+[04:31.639] [UltimateDLC] [DLC] Unlocking DLC class #2: table: 0x90293c00
+[04:31.639] [UltimateDLC] [DLC]   Applying unlock overrides...
+[04:31.639] [UltimateDLC] [DLC] Unlocking DLC class #3: table: 0x90291bc0
+[04:31.639] [UltimateDLC] [DLC]   Applying unlock overrides...
+[04:31.640] [UltimateDLC] [DLC] Running immediate startup unlock pass...
+[04:31.640] [UltimateDLC] [DLC] DLC Manager fully initialized.
+[04:31.640] [UltimateDLC] [DLC] PostHook fired: UltimateDLC_Generic_Init
+[04:31.640] [UltimateDLC] [DLC]   Applying unlock overrides...
+[04:31.640] [UltimateDLC] [DLC] PostHook fired: UltimateDLC_WIN_Init
+[04:31.640] [UltimateDLC] [DLC]   Already unlocked, skipping
+[04:31.640] [UltimateDLC] [DLC] PostHook fired: UltimateDLC_WinSteam_Init
+[04:31.640] [UltimateDLC] [DLC]   Already unlocked, skipping
+[04:32.020] [UltimateDLC] [BM] BlackMarket Manager and Weapon Factory hooks initialized.
+[04:32.021] [UltimateDLC] [BM] BlackMarket Manager and Weapon Factory hooks initialized.
+[04:32.057] [UltimateDLC] [BM] BlackMarket Manager and Weapon Factory hooks initialized.
+[04:32.068] [UltimateDLC] [NET] BaseNetworkSession detected — hooking check_send_outfit
+[04:32.068] [UltimateDLC] [NET] WARNING: NetworkPeer is NIL — cheater hooks SKIPPED
+[04:32.068] [UltimateDLC] [NET] network_mask.lua fully loaded — ALL cheater paths hooked (6 layers)
+[04:32.074] [UltimateDLC] [NET] BaseNetworkSession detected — hooking check_send_outfit
+[04:32.074] [UltimateDLC] [NET] NetworkPeer detected — hooking ALL cheater paths
+[04:32.074] [UltimateDLC] [NET] network_mask.lua fully loaded — ALL cheater paths hooked (6 layers)
+[04:33.290] [UltimateDLC] [BM] equipped_mask REAL → mask_id: fib_cat
+[04:33.290] [UltimateDLC] [BM] equipped_armor_skin REAL → none
+[04:33.290] [UltimateDLC] [BM] equipped_player_style REAL → none
+[04:33.290] [UltimateDLC] [BM] equipped_player_style REAL → none
+[04:33.290] [UltimateDLC] [BM] equipped_glove_id REAL → default
+[04:33.291] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: vityaz | factory_id: wpn_fps_smg_vityaz
+[04:33.291] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: m249 | factory_id: wpn_fps_lmg_m249
+[04:33.291] [UltimateDLC] [BM] equipped_armor_skin REAL → none
+[04:33.291] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: vityaz | factory_id: wpn_fps_smg_vityaz
+[04:33.291] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: m249 | factory_id: wpn_fps_lmg_m249
+[04:33.341] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: vityaz | factory_id: wpn_fps_smg_vityaz
+[04:33.341] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: m249 | factory_id: wpn_fps_lmg_m249
+[04:33.346] [UltimateDLC] [BM] equipped_armor_skin REAL → none
+[04:33.346] [UltimateDLC] [BM] equipped_player_style REAL → none
+[04:33.346] [UltimateDLC] [BM] equipped_glove_id REAL → default
+[04:33.400] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: vityaz | factory_id: wpn_fps_smg_vityaz
+[04:33.400] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: m249 | factory_id: wpn_fps_lmg_m249
+[04:33.430] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: vityaz | factory_id: wpn_fps_smg_vityaz
+[04:33.430] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: m249 | factory_id: wpn_fps_lmg_m249
+[04:33.585] [UltimateDLC] [BM] equipped_armor_skin REAL → none
+[04:41.391] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: vityaz | factory_id: wpn_fps_smg_vityaz
+[04:41.391] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: m249 | factory_id: wpn_fps_lmg_m249
+[05:15.246] [UltimateDLC] [BM] _outfit_string_mask MASKED → safe mask string
+[05:15.246] [UltimateDLC] [BM] equipped_armor_skin MASKED → none
+[05:15.246] [UltimateDLC] [BM] equipped_player_style MASKED → suit
+[05:15.246] [UltimateDLC] [BM] equipped_player_style MASKED → suit
+[05:15.246] [UltimateDLC] [BM] equipped_glove_id MASKED → default
+[05:15.246] [UltimateDLC] [BM] equipped_primary MASKED → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[05:15.246] [UltimateDLC] [WFM] blueprint_to_string called | factory_id: wpn_fps_ass_amcar | blueprint type: table
+[05:15.246] [UltimateDLC] [WFM]   blueprint_to_string result: 1 2 3 5 52 6 45 44 
+[05:15.246] [UltimateDLC] [BM] equipped_secondary MASKED → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[05:15.246] [UltimateDLC] [WFM] blueprint_to_string called | factory_id: wpn_fps_pis_g17 | blueprint type: table
+[05:15.246] [UltimateDLC] [WFM]   blueprint_to_string result: 1 2 3 
+[05:15.246] [UltimateDLC] [BM] equipped_primary MASKED → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[05:15.246] [UltimateDLC] [BM] equipped_secondary MASKED → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[05:15.246] [UltimateDLC] [BM] outfit_string() → masked result:  character_locked plastic no_color_no_material nothing-nothing-strip_paint level_7-level_7-level_7-none-suit-default-def
+[05:15.246] [UltimateDLC] [CHEAT] verify_outfit BLOCKED for LOCAL peer (skipping entirely)
+[05:15.262] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: m249 | factory_id: wpn_fps_lmg_m249
+[05:15.262] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: vityaz | factory_id: wpn_fps_smg_vityaz
+[05:15.262] [UltimateDLC] [NET] >>> check_send_outfit CALLED for peer ?
+[05:15.262] [UltimateDLC] [NET] >>> check_send_outfit CALLED for peer ?
+[05:15.262] [UltimateDLC] [BM] _outfit_string_mask MASKED → safe mask string
+[05:15.262] [UltimateDLC] [BM] equipped_armor_skin MASKED → none
+[05:15.262] [UltimateDLC] [BM] equipped_player_style MASKED → suit
+[05:15.262] [UltimateDLC] [BM] equipped_player_style MASKED → suit
+[05:15.262] [UltimateDLC] [BM] equipped_glove_id MASKED → default
+[05:15.262] [UltimateDLC] [BM] equipped_primary MASKED → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[05:15.262] [UltimateDLC] [WFM] blueprint_to_string called | factory_id: wpn_fps_ass_amcar | blueprint type: table
+[05:15.262] [UltimateDLC] [WFM]   blueprint_to_string result: 1 2 3 5 52 6 45 44 
+[05:15.262] [UltimateDLC] [BM] equipped_secondary MASKED → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[05:15.262] [UltimateDLC] [WFM] blueprint_to_string called | factory_id: wpn_fps_pis_g17 | blueprint type: table
+[05:15.262] [UltimateDLC] [WFM]   blueprint_to_string result: 1 2 3 
+[05:15.263] [UltimateDLC] [BM] equipped_primary MASKED → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[05:15.263] [UltimateDLC] [BM] equipped_secondary MASKED → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[05:15.263] [UltimateDLC] [BM] outfit_string() → masked result:  character_locked plastic no_color_no_material nothing-nothing-strip_paint level_7-level_7-level_7-none-suit-default-def
+[05:17.982] [UltimateDLC] [CHEAT] verify_character BLOCKED for LOCAL peer
+[05:20.872] [UltimateDLC] [SYSTEM] Debug module loaded. console_opened=true
+[05:20.872] [UltimateDLC] [DLC] Unlocking DLC class #1: table: 0x882e12c0
+[05:20.872] [UltimateDLC] [DLC]   Applying unlock overrides...
+[05:20.872] [UltimateDLC] [DLC] Unlocking DLC class #2: table: 0x882e3500
+[05:20.872] [UltimateDLC] [DLC]   Applying unlock overrides...
+[05:20.872] [UltimateDLC] [DLC] Unlocking DLC class #3: table: 0x882e1480
+[05:20.872] [UltimateDLC] [DLC]   Applying unlock overrides...
+[05:20.873] [UltimateDLC] [DLC] Running immediate startup unlock pass...
+[05:20.873] [UltimateDLC] [DLC] DLC Manager fully initialized.
+[05:20.873] [UltimateDLC] [DLC] PostHook fired: UltimateDLC_Generic_Init
+[05:20.873] [UltimateDLC] [DLC]   Applying unlock overrides...
+[05:20.873] [UltimateDLC] [DLC] PostHook fired: UltimateDLC_WIN_Init
+[05:20.873] [UltimateDLC] [DLC]   Already unlocked, skipping
+[05:20.873] [UltimateDLC] [DLC] PostHook fired: UltimateDLC_WinSteam_Init
+[05:20.873] [UltimateDLC] [DLC]   Already unlocked, skipping
+[05:21.216] [UltimateDLC] [BM] BlackMarket Manager and Weapon Factory hooks initialized.
+[05:21.218] [UltimateDLC] [BM] BlackMarket Manager and Weapon Factory hooks initialized.
+[05:21.265] [UltimateDLC] [BM] BlackMarket Manager and Weapon Factory hooks initialized.
+[05:21.436] [UltimateDLC] [NET] WARNING: BaseNetworkSession is NIL — check_send_outfit hook SKIPPED
+[05:21.436] [UltimateDLC] [NET] WARNING: NetworkPeer is NIL — cheater hooks SKIPPED
+[05:21.436] [UltimateDLC] [NET] network_mask.lua fully loaded — ALL cheater paths hooked (6 layers)
+[05:21.669] [UltimateDLC] [NET] BaseNetworkSession detected — hooking check_send_outfit
+[05:21.670] [UltimateDLC] [NET] WARNING: NetworkPeer is NIL — cheater hooks SKIPPED
+[05:21.670] [UltimateDLC] [NET] network_mask.lua fully loaded — ALL cheater paths hooked (6 layers)
+[05:21.676] [UltimateDLC] [NET] BaseNetworkSession detected — hooking check_send_outfit
+[05:21.676] [UltimateDLC] [NET] NetworkPeer detected — hooking ALL cheater paths
+[05:21.676] [UltimateDLC] [NET] network_mask.lua fully loaded — ALL cheater paths hooked (6 layers)
+[05:24.225] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: m249 | factory_id: wpn_fps_lmg_m249
+[05:24.226] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: vityaz | factory_id: wpn_fps_smg_vityaz
+[05:24.228] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: m249 | factory_id: wpn_fps_lmg_m249
+[05:24.228] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: vityaz | factory_id: wpn_fps_smg_vityaz
+[05:24.228] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: m249 | factory_id: wpn_fps_lmg_m249
+[05:24.228] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: vityaz | factory_id: wpn_fps_smg_vityaz
+[05:24.339] [UltimateDLC] [NET] >>> check_send_outfit CALLED for peer ?
+[05:24.339] [UltimateDLC] [NET] >>> check_send_outfit CALLED for peer ?
+[05:24.339] [UltimateDLC] [BM] _outfit_string_mask MASKED → safe mask string
+[05:24.339] [UltimateDLC] [BM] equipped_armor_skin MASKED → none
+[05:24.339] [UltimateDLC] [BM] equipped_player_style MASKED → suit
+[05:24.339] [UltimateDLC] [BM] equipped_player_style MASKED → suit
+[05:24.339] [UltimateDLC] [BM] equipped_glove_id MASKED → default
+[05:24.339] [UltimateDLC] [BM] equipped_primary MASKED → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[05:24.339] [UltimateDLC] [WFM] blueprint_to_string called | factory_id: wpn_fps_ass_amcar | blueprint type: table
+[05:24.339] [UltimateDLC] [WFM]   blueprint_to_string result: 1 2 3 5 52 6 45 44 
+[05:24.339] [UltimateDLC] [BM] equipped_secondary MASKED → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[05:24.339] [UltimateDLC] [WFM] blueprint_to_string called | factory_id: wpn_fps_pis_g17 | blueprint type: table
+[05:24.339] [UltimateDLC] [WFM]   blueprint_to_string result: 1 2 3 
+[05:24.339] [UltimateDLC] [BM] equipped_primary MASKED → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[05:24.339] [UltimateDLC] [BM] equipped_secondary MASKED → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[05:24.339] [UltimateDLC] [BM] outfit_string() → masked result:  character_locked plastic no_color_no_material nothing-nothing-strip_paint level_7-level_7-level_7-none-suit-default-def
+[05:24.339] [UltimateDLC] [BM] _outfit_string_mask MASKED → safe mask string
+[05:24.339] [UltimateDLC] [BM] equipped_armor_skin MASKED → none
+[05:24.339] [UltimateDLC] [BM] equipped_player_style MASKED → suit
+[05:24.339] [UltimateDLC] [BM] equipped_player_style MASKED → suit
+[05:24.339] [UltimateDLC] [BM] equipped_glove_id MASKED → default
+[05:24.339] [UltimateDLC] [BM] equipped_primary MASKED → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[05:24.340] [UltimateDLC] [WFM] blueprint_to_string called | factory_id: wpn_fps_ass_amcar | blueprint type: table
+[05:24.340] [UltimateDLC] [WFM]   blueprint_to_string result: 1 2 3 5 52 6 45 44 
+[05:24.340] [UltimateDLC] [BM] equipped_secondary MASKED → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[05:24.340] [UltimateDLC] [WFM] blueprint_to_string called | factory_id: wpn_fps_pis_g17 | blueprint type: table
+[05:24.340] [UltimateDLC] [WFM]   blueprint_to_string result: 1 2 3 
+[05:24.340] [UltimateDLC] [BM] equipped_primary MASKED → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[05:24.340] [UltimateDLC] [BM] equipped_secondary MASKED → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[05:24.340] [UltimateDLC] [BM] outfit_string() → masked result:  character_locked plastic no_color_no_material nothing-nothing-strip_paint level_7-level_7-level_7-none-suit-default-def
+[05:24.341] [UltimateDLC] [NET] >>> check_send_outfit CALLED for peer ?
+[05:24.341] [UltimateDLC] [NET] >>> check_send_outfit CALLED for peer ?
+[05:24.341] [UltimateDLC] [BM] _outfit_string_mask MASKED → safe mask string
+[05:24.341] [UltimateDLC] [BM] equipped_armor_skin MASKED → none
+[05:24.341] [UltimateDLC] [BM] equipped_player_style MASKED → suit
+[05:24.341] [UltimateDLC] [BM] equipped_player_style MASKED → suit
+[05:24.341] [UltimateDLC] [BM] equipped_glove_id MASKED → default
+[05:24.341] [UltimateDLC] [BM] equipped_primary MASKED → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[05:24.341] [UltimateDLC] [WFM] blueprint_to_string called | factory_id: wpn_fps_ass_amcar | blueprint type: table
+[05:24.341] [UltimateDLC] [WFM]   blueprint_to_string result: 1 2 3 5 52 6 45 44 
+[05:24.341] [UltimateDLC] [BM] equipped_secondary MASKED → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[05:24.341] [UltimateDLC] [WFM] blueprint_to_string called | factory_id: wpn_fps_pis_g17 | blueprint type: table
+[05:24.341] [UltimateDLC] [WFM]   blueprint_to_string result: 1 2 3 
+[05:24.341] [UltimateDLC] [BM] equipped_primary MASKED → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[05:24.341] [UltimateDLC] [BM] equipped_secondary MASKED → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[05:24.342] [UltimateDLC] [BM] outfit_string() → masked result:  character_locked plastic no_color_no_material nothing-nothing-strip_paint level_7-level_7-level_7-none-suit-default-def
+[05:24.342] [UltimateDLC] [NET] >>> check_send_outfit CALLED for peer 1
+[05:24.342] [UltimateDLC] [NET] >>> check_send_outfit CALLED for peer 1
+[05:24.342] [UltimateDLC] [BM] _outfit_string_mask MASKED → safe mask string
+[05:24.342] [UltimateDLC] [BM] equipped_armor_skin MASKED → none
+[05:24.342] [UltimateDLC] [BM] equipped_player_style MASKED → suit
+[05:24.342] [UltimateDLC] [BM] equipped_player_style MASKED → suit
+[05:24.342] [UltimateDLC] [BM] equipped_glove_id MASKED → default
+[05:24.342] [UltimateDLC] [BM] equipped_primary MASKED → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[05:24.342] [UltimateDLC] [WFM] blueprint_to_string called | factory_id: wpn_fps_ass_amcar | blueprint type: table
+[05:24.342] [UltimateDLC] [WFM]   blueprint_to_string result: 1 2 3 5 52 6 45 44 
+[05:24.342] [UltimateDLC] [BM] equipped_secondary MASKED → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[05:24.342] [UltimateDLC] [WFM] blueprint_to_string called | factory_id: wpn_fps_pis_g17 | blueprint type: table
+[05:24.342] [UltimateDLC] [WFM]   blueprint_to_string result: 1 2 3 
+[05:24.342] [UltimateDLC] [BM] equipped_primary MASKED → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[05:24.342] [UltimateDLC] [BM] equipped_secondary MASKED → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[05:24.342] [UltimateDLC] [BM] outfit_string() → masked result:  character_locked plastic no_color_no_material nothing-nothing-strip_paint level_7-level_7-level_7-none-suit-default-def
+[05:24.361] [UltimateDLC] [BM] equipped_armor_skin REAL → none
+[05:24.411] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: m249 | factory_id: wpn_fps_lmg_m249
+[05:24.411] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: vityaz | factory_id: wpn_fps_smg_vityaz
+[05:24.411] [UltimateDLC] [BM] equipped_mask REAL → mask_id: fib_cat
+[05:24.411] [UltimateDLC] [BM] equipped_player_style REAL → none
+[05:24.411] [UltimateDLC] [BM] equipped_glove_id REAL → default
+[05:24.411] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: m249 | factory_id: wpn_fps_lmg_m249
+[05:24.412] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: vityaz | factory_id: wpn_fps_smg_vityaz
+[05:24.421] [UltimateDLC] [BM] _outfit_string_mask MASKED → safe mask string
+[05:24.422] [UltimateDLC] [BM] equipped_armor_skin MASKED → none
+[05:24.422] [UltimateDLC] [BM] equipped_player_style MASKED → suit
+[05:24.422] [UltimateDLC] [BM] equipped_player_style MASKED → suit
+[05:24.422] [UltimateDLC] [BM] equipped_glove_id MASKED → default
+[05:24.422] [UltimateDLC] [BM] equipped_primary MASKED → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[05:24.422] [UltimateDLC] [WFM] blueprint_to_string called | factory_id: wpn_fps_ass_amcar | blueprint type: table
+[05:24.422] [UltimateDLC] [WFM]   blueprint_to_string result: 1 2 3 5 52 6 45 44 
+[05:24.422] [UltimateDLC] [BM] equipped_secondary MASKED → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[05:24.422] [UltimateDLC] [WFM] blueprint_to_string called | factory_id: wpn_fps_pis_g17 | blueprint type: table
+[05:24.422] [UltimateDLC] [WFM]   blueprint_to_string result: 1 2 3 
+[05:24.422] [UltimateDLC] [BM] equipped_primary MASKED → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[05:24.422] [UltimateDLC] [BM] equipped_secondary MASKED → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[05:24.422] [UltimateDLC] [BM] outfit_string() → masked result:  character_locked plastic no_color_no_material nothing-nothing-strip_paint level_7-level_7-level_7-none-suit-default-def
+[05:24.528] [UltimateDLC] [CHEAT] !!! mark_cheater CALLED | peer=1 | reason=9 | kick=false
+[05:24.528] [UltimateDLC] [CHEAT] !!! HUDManager:mark_cheater | peer_id=1 | local_id=2
+[05:39.997] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: m249 | factory_id: wpn_fps_lmg_m249
+[05:39.997] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: vityaz | factory_id: wpn_fps_smg_vityaz
+[05:39.997] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: m249 | factory_id: wpn_fps_lmg_m249
+[05:39.997] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: vityaz | factory_id: wpn_fps_smg_vityaz
+[05:39.998] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: m249 | factory_id: wpn_fps_lmg_m249
+[05:39.998] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: vityaz | factory_id: wpn_fps_smg_vityaz
+[05:39.998] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: m249 | factory_id: wpn_fps_lmg_m249
+[05:39.998] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: vityaz | factory_id: wpn_fps_smg_vityaz
+[05:40.000] [UltimateDLC] [CHEAT] !!! HUDManager:mark_cheater | peer_id=1 | local_id=2
+[05:40.262] [UltimateDLC] [NET] >>> check_send_outfit CALLED for peer ?
+[05:40.262] [UltimateDLC] [NET] >>> check_send_outfit CALLED for peer ?
+[05:40.262] [UltimateDLC] [BM] _outfit_string_mask MASKED → safe mask string
+[05:40.262] [UltimateDLC] [BM] equipped_armor_skin MASKED → none
+[05:40.263] [UltimateDLC] [BM] equipped_player_style MASKED → suit
+[05:40.263] [UltimateDLC] [BM] equipped_player_style MASKED → suit
+[05:40.263] [UltimateDLC] [BM] equipped_glove_id MASKED → default
+[05:40.263] [UltimateDLC] [BM] equipped_primary MASKED → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[05:40.263] [UltimateDLC] [WFM] blueprint_to_string called | factory_id: wpn_fps_ass_amcar | blueprint type: table
+[05:40.263] [UltimateDLC] [WFM]   blueprint_to_string result: 1 2 3 5 52 6 45 44 
+[05:40.263] [UltimateDLC] [BM] equipped_secondary MASKED → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[05:40.263] [UltimateDLC] [WFM] blueprint_to_string called | factory_id: wpn_fps_pis_g17 | blueprint type: table
+[05:40.263] [UltimateDLC] [WFM]   blueprint_to_string result: 1 2 3 
+[05:40.263] [UltimateDLC] [BM] equipped_primary MASKED → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[05:40.263] [UltimateDLC] [BM] equipped_secondary MASKED → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[05:40.264] [UltimateDLC] [BM] outfit_string() → masked result:  character_locked plastic no_color_no_material nothing-nothing-strip_paint level_7-level_7-level_7-none-suit-default-def
+[05:40.264] [UltimateDLC] [NET] >>> check_send_outfit CALLED for peer 1
+[05:40.264] [UltimateDLC] [NET] >>> check_send_outfit CALLED for peer 1
+[05:40.264] [UltimateDLC] [BM] _outfit_string_mask MASKED → safe mask string
+[05:40.264] [UltimateDLC] [BM] equipped_armor_skin MASKED → none
+[05:40.264] [UltimateDLC] [BM] equipped_player_style MASKED → suit
+[05:40.264] [UltimateDLC] [BM] equipped_player_style MASKED → suit
+[05:40.264] [UltimateDLC] [BM] equipped_glove_id MASKED → default
+[05:40.264] [UltimateDLC] [BM] equipped_primary MASKED → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[05:40.264] [UltimateDLC] [WFM] blueprint_to_string called | factory_id: wpn_fps_ass_amcar | blueprint type: table
+[05:40.264] [UltimateDLC] [WFM]   blueprint_to_string result: 1 2 3 5 52 6 45 44 
+[05:40.264] [UltimateDLC] [BM] equipped_secondary MASKED → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[05:40.264] [UltimateDLC] [WFM] blueprint_to_string called | factory_id: wpn_fps_pis_g17 | blueprint type: table
+[05:40.264] [UltimateDLC] [WFM]   blueprint_to_string result: 1 2 3 
+[05:40.264] [UltimateDLC] [BM] equipped_primary MASKED → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[05:40.264] [UltimateDLC] [BM] equipped_secondary MASKED → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[05:40.264] [UltimateDLC] [BM] outfit_string() → masked result:  character_locked plastic no_color_no_material nothing-nothing-strip_paint level_7-level_7-level_7-none-suit-default-def
+[05:41.032] [UltimateDLC] [BM] _outfit_string_mask MASKED → safe mask string
+[05:41.032] [UltimateDLC] [BM] equipped_armor_skin MASKED → none
+[05:41.032] [UltimateDLC] [BM] equipped_player_style MASKED → suit
+[05:41.032] [UltimateDLC] [BM] equipped_player_style MASKED → suit
+[05:41.032] [UltimateDLC] [BM] equipped_glove_id MASKED → default
+[05:41.032] [UltimateDLC] [BM] equipped_primary MASKED → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[05:41.032] [UltimateDLC] [WFM] blueprint_to_string called | factory_id: wpn_fps_ass_amcar | blueprint type: table
+[05:41.032] [UltimateDLC] [WFM]   blueprint_to_string result: 1 2 3 5 52 6 45 44 
+[05:41.032] [UltimateDLC] [BM] equipped_secondary MASKED → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[05:41.032] [UltimateDLC] [WFM] blueprint_to_string called | factory_id: wpn_fps_pis_g17 | blueprint type: table
+[05:41.033] [UltimateDLC] [WFM]   blueprint_to_string result: 1 2 3 
+[05:41.033] [UltimateDLC] [BM] equipped_primary MASKED → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[05:41.033] [UltimateDLC] [BM] equipped_secondary MASKED → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[05:41.033] [UltimateDLC] [BM] outfit_string() → masked result:  character_locked plastic no_color_no_material nothing-nothing-strip_paint level_7-level_7-level_7-none-suit-default-def
+[05:41.035] [UltimateDLC] [CHEAT] verify_outfit BLOCKED for LOCAL peer (skipping entirely)
+[05:41.036] [UltimateDLC] [NET] >>> check_send_outfit CALLED for peer ?
+[05:41.036] [UltimateDLC] [NET] >>> check_send_outfit CALLED for peer ?
+[05:41.036] [UltimateDLC] [BM] _outfit_string_mask MASKED → safe mask string
+[05:41.036] [UltimateDLC] [BM] equipped_armor_skin MASKED → none
+[05:41.036] [UltimateDLC] [BM] equipped_player_style MASKED → suit
+[05:41.036] [UltimateDLC] [BM] equipped_player_style MASKED → suit
+[05:41.036] [UltimateDLC] [BM] equipped_glove_id MASKED → default
+[05:41.036] [UltimateDLC] [BM] equipped_primary MASKED → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[05:41.036] [UltimateDLC] [WFM] blueprint_to_string called | factory_id: wpn_fps_ass_amcar | blueprint type: table
+[05:41.036] [UltimateDLC] [WFM]   blueprint_to_string result: 1 2 3 5 52 6 45 44 
+[05:41.036] [UltimateDLC] [BM] equipped_secondary MASKED → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[05:41.036] [UltimateDLC] [WFM] blueprint_to_string called | factory_id: wpn_fps_pis_g17 | blueprint type: table
+[05:41.036] [UltimateDLC] [WFM]   blueprint_to_string result: 1 2 3 
+[05:41.036] [UltimateDLC] [BM] equipped_primary MASKED → weapon_id: amcar | factory_id: wpn_fps_ass_amcar
+[05:41.036] [UltimateDLC] [BM] equipped_secondary MASKED → weapon_id: glock_17 | factory_id: wpn_fps_pis_g17
+[05:41.036] [UltimateDLC] [BM] outfit_string() → masked result:  character_locked plastic no_color_no_material nothing-nothing-strip_paint level_7-level_7-level_7-none-suit-default-def
+[05:41.036] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: vityaz | factory_id: wpn_fps_smg_vityaz
+[05:41.038] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: m249 | factory_id: wpn_fps_lmg_m249
+[05:41.038] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: vityaz | factory_id: wpn_fps_smg_vityaz
+[05:41.038] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: m249 | factory_id: wpn_fps_lmg_m249
+[05:41.038] [UltimateDLC] [BM] equipped_secondary REAL → weapon_id: vityaz | factory_id: wpn_fps_smg_vityaz
+[05:41.044] [UltimateDLC] [WFM] blueprint_to_string called | factory_id: wpn_fps_smg_vityaz | blueprint type: table
+[05:41.044] [UltimateDLC] [WFM]   blueprint_to_string result: 3 4 6 8 9 10 11 48 21 
+[05:41.044] [UltimateDLC] [BM] equipped_primary REAL → weapon_id: m249 | factory_id: wpn_fps_lmg_m249
+[05:41.049] [UltimateDLC] [BM] equipped_mask REAL → mask_id: fib_cat
+[05:41.049] [UltimateDLC] [BM] equipped_mask REAL → mask_id: fib_cat
