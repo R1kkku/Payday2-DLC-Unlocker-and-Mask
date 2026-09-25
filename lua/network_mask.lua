@@ -44,9 +44,11 @@ if BaseNetworkSession then
         local peer_id = peer and peer.id and peer:id() or "?"
         DBG("NET", ">>> check_send_outfit CALLED for peer " .. tostring(peer_id))
         Global.IS_SENDING_OUTFIT = true
-        local res = orig_check_send_outfit(self, peer, ...)
+        local ok, err = pcall(orig_check_send_outfit, self, peer, ...)
         Global.IS_SENDING_OUTFIT = false
-        return res
+        if not ok then
+            DBG("NET", "check_send_outfit error: " .. tostring(err))
+        end
     end
 
     -- Hook on_peer_sync_complete to force-clear cheater flag after sync

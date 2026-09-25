@@ -238,19 +238,16 @@ if BlackMarketManager and not rawget(BlackMarketManager, "_dlc_bm_patched") then
         return "weapon"
     end
 
-    -- DO NOT spoof throwable/grenade — the server tracks what you throw in real-time.
-    -- If the outfit says "frag" with 0 amount but you throw smoke/molotov/etc, the
-    -- server detects a mismatch → desync → kick (or crash for others if you're host).
-    -- Throwables are just string IDs; no DLC packages need loading on other clients.
+    -- During outfit sync, send "frag" so host's verify_outfit passes — DLC grenades cause cheater tag.
+    -- Outside of sync (actual gameplay), real grenade passes through so throw events match.
     local orig_equipped_grenade = BlackMarketManager.equipped_grenade
-    function BlackMarketManager:equipped_grenade(...)
-        if orig_equipped_grenade then
-            local grenade, amount = orig_equipped_grenade(self, ...)
-            if grenade and grenade ~= "" then
-                return grenade, amount or 0
+    if orig_equipped_grenade then
+        function BlackMarketManager:equipped_grenade(...)
+            if Global.IS_SENDING_OUTFIT then
+                return "frag", 0
             end
+            return orig_equipped_grenade(self, ...)
         end
-        return "frag", 0
     end
 
     local orig_equipped_player_style = BlackMarketManager.equipped_player_style
