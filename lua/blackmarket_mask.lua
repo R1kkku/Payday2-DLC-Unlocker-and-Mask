@@ -341,18 +341,29 @@ if BlackMarketManager and not rawget(BlackMarketManager, "_dlc_bm_patched") then
         return " character_locked plastic no_color_no_material nothing-nothing-strip_paint"
     end
 
-    -- DO NOT force-mask outfit_string(). Masking is handled by check_send_outfit()
-    -- in network_mask.lua, which sets IS_SENDING_OUTFIT = true before calling this.
-    -- DO NOT use pcall — let errors propagate so PD2's state machine works correctly.
+    -- Always generate outfit_string() with masking active.
+    -- outfit_string() is called during the connection handshake directly — BEFORE
+    -- check_send_outfit ever runs. At that point IS_SENDING_OUTFIT is false, so
+    -- raw DLC items get sent to the host's verify_outfit → cheater tag.
+    -- Fix: always set IS_SENDING_OUTFIT=true for the duration of outfit_string().
     local orig_outfit_string = BlackMarketManager.outfit_string
     function BlackMarketManager:outfit_string(...)
+        local was_sending = Global.IS_SENDING_OUTFIT
+        Global.IS_SENDING_OUTFIT = true
+        local result
         if orig_outfit_string then
-            local result = orig_outfit_string(self, ...)
-            DBG("BM", "outfit_string() → IS_SENDING=" .. tostring(Global.IS_SENDING_OUTFIT) .. " | result: " .. tostring(result and string.sub(tostring(result), 1, 120)))
+            local ok, res = pcall(orig_outfit_string, self, ...)
+            if ok and res and res ~= "" then
+                result = res
+            end
+        end
+        Global.IS_SENDING_OUTFIT = was_sending
+        if result then
+            DBG("BM", "outfit_string() → masked result: " .. tostring(string.sub(tostring(result), 1, 120)))
             return result
         end
-        -- Hardcoded fallback only if the original function doesn't exist
-        DBG("BM", "outfit_string() FALLBACK (no original function)")
+        -- Hard fallback: all-vanilla safe string
+        DBG("BM", "outfit_string() FALLBACK → hardcoded safe string")
         return "character_locked plastic no_color_no_material nothing-nothing-strip_paint level_1-level_1-level_1-none-suit-default-default russian wpn_fps_ass_amcar 1 wpn_fps_pis_g17 1 nil 0 nil 0 0 weapon frag 42_0 nil-1-0 nil-1-0"
     end
 
