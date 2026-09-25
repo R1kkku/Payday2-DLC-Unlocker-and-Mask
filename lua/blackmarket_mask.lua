@@ -350,16 +350,23 @@ if BlackMarketManager and not rawget(BlackMarketManager, "_dlc_bm_patched") then
         return " character_locked plastic no_color_no_material nothing-nothing-strip_paint"
     end
 
-    -- CRITICAL: Never call orig_outfit_string for network sync.
-    -- Our DLC mod adds parts to the weapon factory, shifting part indices.
-    -- orig_outfit_string calls blueprint_to_string which produces indices like
-    -- "1 2 3 5 52 6 45 44" based on our expanded list. Vanilla clients do
-    -- parts[52] = nil, then strlen(nil) → access violation crash.
-    -- Fix: return a fully hardcoded safe string with sequential low indices
-    -- (1-8 for amcar, 1-3 for g17) that exist in every game version.
+    -- outfit_string() is called from two different contexts:
+    -- 1. create_local_peer() → set_outfit_string() → _reload_outfit(): needs REAL blueprint
+    --    indices so _reload_outfit can actually load the weapon models (nil index = crash)
+    -- 2. check_send_outfit() → IS_SENDING_OUTFIT=true: needs SAFE string so host's
+    --    verify_outfit doesn't see DLC items and flag as cheater
+    -- IS_SENDING_OUTFIT=true (set by check_send_outfit) is the discriminator.
+    local orig_outfit_string = BlackMarketManager.outfit_string
     function BlackMarketManager:outfit_string(...)
-        DBG("BM", "outfit_string() → hardcoded safe string")
-        return "character_locked plastic no_color_no_material nothing-nothing-strip_paint level_1-level_1-level_1-none-suit-default-default russian wpn_fps_ass_amcar 1 2 3 4 5 6 7 8 wpn_fps_pis_g17 1 2 3 nil 0 nil 0 0 weapon frag 42_0 nil-1-0 nil-1-0"
+        if Global.IS_SENDING_OUTFIT then
+            -- Network sync path: return safe vanilla string, no DLC indices
+            DBG("BM", "outfit_string() MASKED → safe hardcoded string")
+            return "character_locked plastic no_color_no_material nothing-nothing-strip_paint level_1-level_1-level_1-none-suit-default-default russian wpn_fps_ass_amcar 1 wpn_fps_pis_g17 1 nil 0 nil 0 0 weapon frag 42_0 nil-1-0 nil-1-0"
+        end
+        -- Local path (create_local_peer, UI): use real outfit so _reload_outfit works
+        if orig_outfit_string then
+            return orig_outfit_string(self, ...)
+        end
     end
 
 
