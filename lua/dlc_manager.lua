@@ -3,6 +3,11 @@
 -- RequiredScript: lib/managers/dlcmanager
 -- =====================================================================
 
+-- Safe global debug stubs
+_G.DBG = _G.DBG or function() end
+_G.DBG_TABLE = _G.DBG_TABLE or function() end
+_G.DBG_CLOSE = _G.DBG_CLOSE or function() end
+
 -- Ensure Global DLC data tables exist and are protected against nil indexing
 Global.dlc_manager = Global.dlc_manager or {}
 Global.dlc_manager.all_dlc_data = Global.dlc_manager.all_dlc_data or {}
@@ -32,6 +37,10 @@ local function unlock_dlc_manager(manager_class)
     if not manager_class or type(manager_class) ~= "table" then
         return
     end
+    if rawget(manager_class, "_dlc_unlocked") then
+        return
+    end
+    rawset(manager_class, "_dlc_unlocked", true)
 
     function manager_class:is_dlc_unlocked(dlc_id)
         return true
@@ -94,6 +103,10 @@ local function unlock_dlc_manager(manager_class)
     end
 
     function manager_class:has_pd2_clan(...)
+        return true
+    end
+
+    function manager_class:has_dlc_or_milestone(...)
         return true
     end
 
@@ -168,7 +181,7 @@ local dlc_classes = {
     DLCManager
 }
 
-for _, cls in ipairs(dlc_classes) do
+for i, cls in ipairs(dlc_classes) do
     if cls then
         unlock_dlc_manager(cls)
     end
@@ -205,8 +218,27 @@ local function apply_full_unlock(self)
         end
     end
 
-    -- Unlock Global.dlc_manager.all_dlc_data entries
+    -- Unlock Global.dlc_manager.all_dlc_data entries and ensure safety metatable persists
     if Global.dlc_manager and Global.dlc_manager.all_dlc_data then
+        if not getmetatable(Global.dlc_manager.all_dlc_data) then
+            setmetatable(Global.dlc_manager.all_dlc_data, {
+                __index = function(t, key)
+                    if not key then
+                        return nil
+                    end
+                    local val = {
+                        verified = true,
+                        unlocked = true,
+                        enabled = true,
+                        purchased = true,
+                        is_dlc = true
+                    }
+                    rawset(t, key, val)
+                    return val
+                end
+            })
+        end
+
         for dlc_name, dlc_data in pairs(Global.dlc_manager.all_dlc_data) do
             if type(dlc_data) == "table" then
                 dlc_data.verified = true
@@ -225,6 +257,8 @@ local hook_targets = {
     { WinSteamDLCManager, "UltimateDLC_WinSteam_Init" },
     { SteamDLCManager, "UltimateDLC_Steam_Init" },
     { WindirDLCManager, "UltimateDLC_Windir_Init" },
+    { EOSDLCManager, "UltimateDLC_EOS_Init" },
+    { EpicDLCManager, "UltimateDLC_Epic_Init" },
     { DLCManager, "UltimateDLC_DLC_Init" }
 }
 
