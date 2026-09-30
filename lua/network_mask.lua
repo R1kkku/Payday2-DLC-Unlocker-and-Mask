@@ -38,17 +38,11 @@ end
 -- 1. Outfit Masking: Wrap check_send_outfit
 -- =====================================================================
 if BaseNetworkSession then
-    DBG("NET", "BaseNetworkSession detected — hooking check_send_outfit")
     local orig_check_send_outfit = BaseNetworkSession.check_send_outfit
     function BaseNetworkSession:check_send_outfit(peer, ...)
-        local peer_id = peer and peer.id and peer:id() or "?"
-        DBG("NET", ">>> check_send_outfit CALLED for peer " .. tostring(peer_id))
         Global.IS_SENDING_OUTFIT = true
-        local ok, err = pcall(orig_check_send_outfit, self, peer, ...)
+        pcall(orig_check_send_outfit, self, peer, ...)
         Global.IS_SENDING_OUTFIT = false
-        if not ok then
-            DBG("NET", "check_send_outfit error: " .. tostring(err))
-        end
     end
 
     -- Hook on_peer_sync_complete to force-clear cheater flag after sync
@@ -57,29 +51,21 @@ if BaseNetworkSession then
         function BaseNetworkSession:on_peer_sync_complete(peer, ...)
             local res = orig_on_peer_sync_complete(self, peer, ...)
             if peer and is_local_peer(peer) then
-                DBG("CHEAT", "Clearing cheater state after on_peer_sync_complete for LOCAL peer")
                 peer._cheater = nil
             end
             return res
         end
     end
-else
-    DBG("NET", "WARNING: BaseNetworkSession is NIL — check_send_outfit hook SKIPPED")
 end
 
 -- =====================================================================
 -- 2. NetworkPeer Cheater Suppression (ALL known paths)
 -- =====================================================================
 if NetworkPeer then
-    DBG("NET", "NetworkPeer detected — hooking ALL cheater paths")
-
     -- 2a. mark_cheater — completely block for local peer
     local orig_mark_cheater = NetworkPeer.mark_cheater
     function NetworkPeer:mark_cheater(reason, auto_kick, ...)
-        local peer_id = self.id and self:id() or "?"
-        DBG("CHEAT", "!!! mark_cheater CALLED | peer=" .. tostring(peer_id) .. " | reason=" .. tostring(reason) .. " | kick=" .. tostring(auto_kick))
         if is_local_peer(self) then
-            DBG("CHEAT", "    >>> BLOCKED mark_cheater for LOCAL peer")
             return
         end
         if orig_mark_cheater then
@@ -103,9 +89,7 @@ if NetworkPeer then
     if NetworkPeer.set_cheater then
         local orig_set_cheater = NetworkPeer.set_cheater
         function NetworkPeer:set_cheater(reason, ...)
-            DBG("CHEAT", "!!! set_cheater CALLED | peer=" .. tostring(self.id and self:id() or "?") .. " | reason=" .. tostring(reason))
             if is_local_peer(self) then
-                DBG("CHEAT", "    >>> BLOCKED set_cheater for LOCAL peer")
                 return
             end
             if orig_set_cheater then
@@ -121,7 +105,6 @@ if NetworkPeer then
     local orig_verify_outfit = NetworkPeer.verify_outfit
     function NetworkPeer:verify_outfit(...)
         if is_local_peer(self) then
-            DBG("CHEAT", "verify_outfit BLOCKED for LOCAL peer (skipping entirely)")
             return
         end
         if orig_verify_outfit then
@@ -134,7 +117,6 @@ if NetworkPeer then
     if orig_verify_job then
         function NetworkPeer:verify_job(job, ...)
             if is_local_peer(self) then
-                DBG("CHEAT", "verify_job BLOCKED for LOCAL peer | job=" .. tostring(job))
                 return
             end
             return orig_verify_job(self, job, ...)
@@ -146,7 +128,6 @@ if NetworkPeer then
     if orig_verify_character then
         function NetworkPeer:verify_character(...)
             if is_local_peer(self) then
-                DBG("CHEAT", "verify_character BLOCKED for LOCAL peer")
                 return
             end
             return orig_verify_character(self, ...)
@@ -158,7 +139,6 @@ if NetworkPeer then
     if orig_verify_outfit_data then
         function NetworkPeer:_verify_outfit_data(...)
             if is_local_peer(self) then
-                DBG("CHEAT", "_verify_outfit_data BLOCKED for LOCAL peer → returning nil (clean)")
                 return nil
             end
             return orig_verify_outfit_data(self, ...)
@@ -171,7 +151,6 @@ if NetworkPeer then
         function NetworkPeer:set_outfit_string(outfit_string, ...)
             local res = orig_peer_set_outfit_string(self, outfit_string, ...)
             if is_local_peer(self) and self._cheater then
-                DBG("CHEAT", "Clearing _cheater flag after set_outfit_string for LOCAL peer")
                 self._cheater = nil
             end
             return res
@@ -184,7 +163,6 @@ if NetworkPeer then
         function NetworkPeer:update(...)
             local res = orig_peer_update(self, ...)
             if is_local_peer(self) and self._cheater then
-                DBG("CHEAT", "!!! SCRUBBED _cheater in update() for LOCAL peer")
                 self._cheater = nil
                 self._cheater_reason = nil
             end
@@ -192,8 +170,6 @@ if NetworkPeer then
         end
     end
 
-else
-    DBG("NET", "WARNING: NetworkPeer is NIL — cheater hooks SKIPPED")
 end
 
 -- =====================================================================
@@ -206,15 +182,12 @@ if HUDManager and not rawget(HUDManager, "_dlc_cheater_patched") then
     local orig_hud_mark_cheater = HUDManager.mark_cheater
     function HUDManager:mark_cheater(peer_id, ...)
         local local_id = get_local_peer_id()
-        DBG("CHEAT", "!!! HUDManager:mark_cheater | peer_id=" .. tostring(peer_id) .. " | local_id=" .. tostring(local_id))
 
         -- Block for local peer (either by ID match or host=peer1)
         if peer_id and local_id and tonumber(peer_id) == tonumber(local_id) then
-            DBG("CHEAT", "    >>> BLOCKED HUD cheater for LOCAL peer")
             return
         end
         if peer_id and tonumber(peer_id) == 1 and Network:is_server() then
-            DBG("CHEAT", "    >>> BLOCKED HUD cheater for HOST (peer 1)")
             return
         end
 
@@ -228,9 +201,7 @@ if HUDManager and not rawget(HUDManager, "_dlc_cheater_patched") then
         local orig_set_cheater_name = HUDManager.set_cheater_name
         function HUDManager:set_cheater_name(peer_id, ...)
             local local_id = get_local_peer_id()
-            DBG("CHEAT", "!!! HUDManager:set_cheater_name | peer_id=" .. tostring(peer_id))
             if peer_id and local_id and tonumber(peer_id) == tonumber(local_id) then
-                DBG("CHEAT", "    >>> BLOCKED set_cheater_name for LOCAL peer")
                 return
             end
             if peer_id and tonumber(peer_id) == 1 and Network:is_server() then
@@ -274,7 +245,6 @@ if VoteManager and not rawget(VoteManager, "_dlc_patched") then
     local orig_kick_auto = VoteManager.kick_auto
     function VoteManager:kick_auto(reason, peer, loading, ...)
         if peer and is_local_peer(peer) then
-            DBG("CHEAT", "!!! VoteManager:kick_auto BLOCKED for LOCAL peer | reason=" .. tostring(reason))
             return
         end
         if orig_kick_auto then
@@ -293,7 +263,6 @@ if managers and managers.chat then
             if peer and is_local_peer(peer) and message then
                 local lower_msg = message:lower()
                 if lower_msg:find("cheat") then
-                    DBG("CHEAT", "Suppressed cheater chat message for LOCAL peer: " .. tostring(message))
                     return
                 end
             end
@@ -301,5 +270,3 @@ if managers and managers.chat then
         end
     end
 end
-
-DBG("NET", "network_mask.lua fully loaded — ALL cheater paths hooked (6 layers)")

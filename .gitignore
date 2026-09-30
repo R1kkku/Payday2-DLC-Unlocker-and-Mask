@@ -1,3 +1,5 @@
-/logs
+/logs/
 tail_debug.bat
-tail_debug.bat
+*.bat
+debug_log.txt
+*.log

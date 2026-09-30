@@ -55,31 +55,24 @@ local function patch_weapon_factory(wfm)
 
     local orig_blueprint_to_string = wfm.blueprint_to_string
     function wfm:blueprint_to_string(factory_id, blueprint, ...)
-        DBG("WFM", "blueprint_to_string called | factory_id: " .. tostring(factory_id) .. " | blueprint type: " .. type(blueprint))
         if not factory_id or not (tweak_data and tweak_data.weapon and tweak_data.weapon.factory and tweak_data.weapon.factory[factory_id]) then
-            DBG("WFM", "  factory_id invalid/missing → fallback to amcar")
             factory_id = "wpn_fps_ass_amcar"
             blueprint = (self.get_default_blueprint_by_factory_id and self:get_default_blueprint_by_factory_id(factory_id)) or safe_primary.blueprint
         end
         if not blueprint or type(blueprint) ~= "table" then
-            DBG("WFM", "  blueprint invalid → using default for " .. tostring(factory_id))
             blueprint = (self.get_default_blueprint_by_factory_id and self:get_default_blueprint_by_factory_id(factory_id)) or safe_primary.blueprint or {}
         end
         if orig_blueprint_to_string then
             local status, res = pcall(orig_blueprint_to_string, self, factory_id, blueprint, ...)
             if status and res and type(res) == "string" and res ~= "" then
-                DBG("WFM", "  blueprint_to_string result: " .. tostring(res))
                 return res
             end
-            DBG("WFM", "  first attempt failed, trying default blueprint")
             local def_bp = (self.get_default_blueprint_by_factory_id and self:get_default_blueprint_by_factory_id(factory_id)) or safe_primary.blueprint
             status, res = pcall(orig_blueprint_to_string, self, factory_id, def_bp)
             if status and res and type(res) == "string" and res ~= "" then
-                DBG("WFM", "  fallback blueprint_to_string result: " .. tostring(res))
                 return res
             end
         end
-        DBG("WFM", "  FINAL FALLBACK: returning '1'")
         return "1"
     end
 
@@ -188,11 +181,7 @@ if BlackMarketManager and not rawget(BlackMarketManager, "_dlc_bm_patched") then
         local current = orig_equipped_primary and orig_equipped_primary(self, ...)
         if Global.IS_SENDING_OUTFIT then
             local safe = get_safe_primary(current)
-            DBG("BM", "equipped_primary MASKED → weapon_id: " .. tostring(safe.weapon_id) .. " | factory_id: " .. tostring(safe.factory_id))
             return safe
-        end
-        if current then
-            DBG("BM", "equipped_primary REAL → weapon_id: " .. tostring(current.weapon_id) .. " | factory_id: " .. tostring(current.factory_id))
         end
         return current
     end
@@ -202,11 +191,7 @@ if BlackMarketManager and not rawget(BlackMarketManager, "_dlc_bm_patched") then
         local current = orig_equipped_secondary and orig_equipped_secondary(self, ...)
         if Global.IS_SENDING_OUTFIT then
             local safe = get_safe_secondary(current)
-            DBG("BM", "equipped_secondary MASKED → weapon_id: " .. tostring(safe.weapon_id) .. " | factory_id: " .. tostring(safe.factory_id))
             return safe
-        end
-        if current then
-            DBG("BM", "equipped_secondary REAL → weapon_id: " .. tostring(current.weapon_id) .. " | factory_id: " .. tostring(current.factory_id))
         end
         return current
     end
@@ -215,11 +200,7 @@ if BlackMarketManager and not rawget(BlackMarketManager, "_dlc_bm_patched") then
     function BlackMarketManager:equipped_mask(...)
         local current = orig_equipped_mask and orig_equipped_mask(self, ...)
         if Global.IS_SENDING_OUTFIT then
-            DBG("BM", "equipped_mask MASKED → character_locked")
             return safe_mask
-        end
-        if current then
-            DBG("BM", "equipped_mask REAL → mask_id: " .. tostring(current.mask_id))
         end
         return current
     end
@@ -253,12 +234,10 @@ if BlackMarketManager and not rawget(BlackMarketManager, "_dlc_bm_patched") then
     local orig_equipped_player_style = BlackMarketManager.equipped_player_style
     function BlackMarketManager:equipped_player_style(...)
         if Global.IS_SENDING_OUTFIT then
-            DBG("BM", "equipped_player_style MASKED → suit")
             return "suit"
         end
         if orig_equipped_player_style then
             local r = orig_equipped_player_style(self, ...)
-            DBG("BM", "equipped_player_style REAL → " .. tostring(r))
             return r
         end
         return "suit"
@@ -267,12 +246,10 @@ if BlackMarketManager and not rawget(BlackMarketManager, "_dlc_bm_patched") then
     local orig_equipped_suit_variation = BlackMarketManager.equipped_suit_variation
     function BlackMarketManager:equipped_suit_variation(...)
         if Global.IS_SENDING_OUTFIT then
-            DBG("BM", "equipped_suit_variation MASKED → default")
             return "default"
         end
         if orig_equipped_suit_variation then
             local r = orig_equipped_suit_variation(self, ...)
-            DBG("BM", "equipped_suit_variation REAL → " .. tostring(r))
             return r
         end
         return "default"
@@ -281,12 +258,10 @@ if BlackMarketManager and not rawget(BlackMarketManager, "_dlc_bm_patched") then
     local orig_equipped_glove_id = BlackMarketManager.equipped_glove_id
     function BlackMarketManager:equipped_glove_id(...)
         if Global.IS_SENDING_OUTFIT then
-            DBG("BM", "equipped_glove_id MASKED → default")
             return "default"
         end
         if orig_equipped_glove_id then
             local r = orig_equipped_glove_id(self, ...)
-            DBG("BM", "equipped_glove_id REAL → " .. tostring(r))
             return r
         end
         return "default"
@@ -297,7 +272,6 @@ if BlackMarketManager and not rawget(BlackMarketManager, "_dlc_bm_patched") then
     if orig_equipped_armor then
         function BlackMarketManager:equipped_armor(...)
             if Global.IS_SENDING_OUTFIT then
-                DBG("BM", "equipped_armor MASKED → level_1")
                 return "level_1"
             end
             return orig_equipped_armor(self, ...)
@@ -307,12 +281,10 @@ if BlackMarketManager and not rawget(BlackMarketManager, "_dlc_bm_patched") then
     local orig_equipped_armor_skin = BlackMarketManager.equipped_armor_skin
     function BlackMarketManager:equipped_armor_skin(...)
         if Global.IS_SENDING_OUTFIT then
-            DBG("BM", "equipped_armor_skin MASKED → none")
             return "none"
         end
         if orig_equipped_armor_skin then
             local r = orig_equipped_armor_skin(self, ...)
-            DBG("BM", "equipped_armor_skin REAL → " .. tostring(r))
             return r
         end
         return "none"
@@ -336,30 +308,33 @@ if BlackMarketManager and not rawget(BlackMarketManager, "_dlc_bm_patched") then
     local orig_outfit_string_mask = BlackMarketManager._outfit_string_mask
     function BlackMarketManager:_outfit_string_mask(...)
         if Global.IS_SENDING_OUTFIT then
-            DBG("BM", "_outfit_string_mask MASKED → safe mask string")
             return " character_locked plastic no_color_no_material nothing-nothing-strip_paint"
         end
         if orig_outfit_string_mask then
             local status, res = pcall(orig_outfit_string_mask, self, ...)
             if status and res and type(res) == "string" and res ~= "" then
-                DBG("BM", "_outfit_string_mask REAL → " .. tostring(res))
                 return res
             end
         end
-        DBG("BM", "_outfit_string_mask FALLBACK → safe mask string")
         return " character_locked plastic no_color_no_material nothing-nothing-strip_paint"
     end
 
-    -- CRITICAL: Never call orig_outfit_string for network sync.
-    -- Our DLC mod adds parts to the weapon factory, shifting part indices.
-    -- orig_outfit_string calls blueprint_to_string which produces indices like
-    -- "1 2 3 5 52 6 45 44" based on our expanded list. Vanilla clients do
-    -- parts[52] = nil, then strlen(nil) → access violation crash.
-    -- Fix: return a fully hardcoded safe string with sequential low indices
-    -- (1-8 for amcar, 1-3 for g17) that exist in every game version.
+    -- outfit_string() is called from two different contexts:
+    -- 1. create_local_peer() → set_outfit_string() → _reload_outfit(): needs REAL blueprint
+    --    indices so _reload_outfit can actually load the weapon models (nil index = crash)
+    -- 2. check_send_outfit() → IS_SENDING_OUTFIT=true: needs SAFE string so host's
+    --    verify_outfit doesn't see DLC items and flag as cheater
+    -- IS_SENDING_OUTFIT=true (set by check_send_outfit) is the discriminator.
+    local orig_outfit_string = BlackMarketManager.outfit_string
     function BlackMarketManager:outfit_string(...)
-        DBG("BM", "outfit_string() → hardcoded safe string")
-        return "character_locked plastic no_color_no_material nothing-nothing-strip_paint level_1-level_1-level_1-none-suit-default-default russian wpn_fps_ass_amcar 1 2 3 4 5 6 7 8 wpn_fps_pis_g17 1 2 3 nil 0 nil 0 0 weapon frag 42_0 nil-1-0 nil-1-0"
+        if Global.IS_SENDING_OUTFIT then
+            -- Network sync path: return safe vanilla string, no DLC indices
+            return "character_locked plastic no_color_no_material nothing-nothing-strip_paint level_1-level_1-level_1-none-suit-default-default russian wpn_fps_ass_amcar 1 wpn_fps_pis_g17 1 nil 0 nil 0 0 weapon frag 42_0 nil-1-0 nil-1-0"
+        end
+        -- Local path (create_local_peer, UI): use real outfit so _reload_outfit works
+        if orig_outfit_string then
+            return orig_outfit_string(self, ...)
+        end
     end
 
 
@@ -533,5 +508,4 @@ if BlackMarketManager and not rawget(BlackMarketManager, "_dlc_bm_patched") then
     end
 end
 
-DBG("BM", "BlackMarket Manager and Weapon Factory hooks initialized.")
 log("[DLC Unlocker] BlackMarket Manager and Weapon Factory hooks initialized.")
