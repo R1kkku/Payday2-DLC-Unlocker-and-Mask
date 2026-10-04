@@ -370,20 +370,6 @@ if BlackMarketManager and not rawget(BlackMarketManager, "_dlc_bm_patched") then
         return true
     end
 
-    -- Return at least 1 for weapon mods so all mods (ammunition, barrels, gadgets, charms, etc.)
-    -- are recognized in stock and can be crafted/purchased in the BlackMarket modification menu
-    local orig_get_item_amount = BlackMarketManager.get_item_amount
-    function BlackMarketManager:get_item_amount(global_value, category, id, no_prints)
-        local amount = 0
-        if orig_get_item_amount then
-            amount = orig_get_item_amount(self, global_value, category, id, no_prints) or 0
-        end
-        if category == "weapon_mods" then
-            return math.max(amount, 1)
-        end
-        return amount
-    end
-
     -- Verify melee weapon ownership as unlocked
     function BlackMarketManager:is_melee_weapon_unlocked(...)
         return true

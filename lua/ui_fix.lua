@@ -28,7 +28,7 @@ if RequiredScript == "lib/managers/menu/menucomponentmanager" or MenuComponentMa
     end
 end
 
--- 2. Unlock Locked Display State & Enable Crafting in BlackMarket GUI
+-- 2. Unlock Locked Display State & Enable Coin Purchasing in BlackMarket GUI
 if RequiredScript == "lib/managers/menu/blackmarketgui" or BlackMarketGui then
     if BlackMarketGui and not rawget(BlackMarketGui, "_dlc_bm_gui_patched") then
         rawset(BlackMarketGui, "_dlc_bm_gui_patched", true)
@@ -43,32 +43,68 @@ if RequiredScript == "lib/managers/menu/blackmarketgui" or BlackMarketGui then
                 local no_items_text = managers.localization and managers.localization:text("bm_menu_no_items")
                 for _, slot_data in ipairs(data) do
                     if type(slot_data) == "table" and slot_data.name and slot_data.name ~= "empty" then
+                        -- Remove DLC and lock restrictions so mod is eligible to be purchased with coins
                         slot_data.dlc_locked = nil
                         slot_data.lock_texture = nil
                         slot_data.lock_color = nil
 
-                        if not slot_data.unlocked or (type(slot_data.unlocked) == "number" and slot_data.unlocked <= 0) then
-                            slot_data.unlocked = 1
+                        local amount = type(slot_data.unlocked) == "number" and slot_data.unlocked or (slot_data.unlocked and 1 or 0)
+
+                        if amount > 0 then
+                            -- Player has item in inventory stock: allow crafting with cash
+                            if slot_data.corner_text and no_items_text and slot_data.corner_text.selected_text == no_items_text then
+                                slot_data.corner_text = nil
+                            end
+
+                            if not slot_data.equipped and slot_data.can_afford then
+                                local has_buy = false
+                                for _, btn in ipairs(slot_data) do
+                                    if btn == "wm_buy" then
+                                        has_buy = true
+                                        break
+                                    end
+                                end
+                                if not has_buy then
+                                    table.insert(slot_data, 1, "wm_buy")
+                                end
+                            end
+                        else
+                            -- Player does NOT have item in stock: remove craft button so it must be purchased with coins first
+                            for i = #slot_data, 1, -1 do
+                                if slot_data[i] == "wm_buy" then
+                                    table.remove(slot_data, i)
+                                end
+                            end
                         end
 
-                        if slot_data.corner_text and no_items_text and slot_data.corner_text.selected_text == no_items_text then
-                            slot_data.corner_text = nil
-                        end
-
-                        if not slot_data.equipped and slot_data.can_afford then
-                            local found = false
+                        -- Always allow purchasing the mod using Continental Coins (wm_buy_mod) if safehouse is unlocked
+                        if managers.custom_safehouse and managers.custom_safehouse:unlocked() then
+                            local has_coin_buy = false
                             for _, btn in ipairs(slot_data) do
-                                if btn == "wm_buy" then
-                                    found = true
+                                if btn == "wm_buy_mod" then
+                                    has_coin_buy = true
                                     break
                                 end
                             end
-                            if not found then
-                                table.insert(slot_data, 1, "wm_buy")
+                            if not has_coin_buy then
+                                table.insert(slot_data, "wm_buy_mod")
                             end
                         end
                     end
                 end
+            end
+        end
+
+        local orig_purchase_weapon_mod_cb = BlackMarketGui.purchase_weapon_mod_callback
+        if orig_purchase_weapon_mod_cb then
+            function BlackMarketGui:purchase_weapon_mod_callback(data, ...)
+                if data and data.name and tweak_data and tweak_data.weapon and tweak_data.weapon.factory and tweak_data.weapon.factory.parts then
+                    local part_td = tweak_data.weapon.factory.parts[data.name]
+                    if part_td and part_td.is_event_mod then
+                        part_td.is_event_mod = nil
+                    end
+                end
+                return orig_purchase_weapon_mod_cb(self, data, ...)
             end
         end
 
@@ -79,7 +115,6 @@ if RequiredScript == "lib/managers/menu/blackmarketgui" or BlackMarketGui then
 
                 if data and data.locked and not data.empty_slot then
                     data.locked = false
-                    data.unlocked = true
                     data.dlc_locked = nil
 
                     if self._slots and self._slots[data.slot] and self._slots[data.slot].refresh then
