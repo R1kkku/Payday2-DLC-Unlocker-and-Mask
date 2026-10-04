@@ -28,19 +28,64 @@ if RequiredScript == "lib/managers/menu/menucomponentmanager" or MenuComponentMa
     end
 end
 
--- 2. Unlock Locked Display State in BlackMarket GUI
-if RequiredScript == "lib/managers/menu/blackmarketgui" then
-    local orig_update_buy_info = BlackMarketGui._update_buy_info
-    function BlackMarketGui:_update_buy_info(data, update)
-        orig_update_buy_info(self, data, update)
+-- 2. Unlock Locked Display State & Enable Crafting in BlackMarket GUI
+if RequiredScript == "lib/managers/menu/blackmarketgui" or BlackMarketGui then
+    if BlackMarketGui and not rawget(BlackMarketGui, "_dlc_bm_gui_patched") then
+        rawset(BlackMarketGui, "_dlc_bm_gui_patched", true)
 
-        if data and data.locked and not data.empty_slot then
-            data.locked = false
-            data.unlocked = true
-            data.dlc_locked = nil
+        local orig_populate_mods = BlackMarketGui.populate_mods
+        function BlackMarketGui:populate_mods(data, ...)
+            if orig_populate_mods then
+                orig_populate_mods(self, data, ...)
+            end
 
-            if self._slots and self._slots[data.slot] and self._slots[data.slot].refresh then
-                self._slots[data.slot]:refresh()
+            if data and type(data) == "table" then
+                local no_items_text = managers.localization and managers.localization:text("bm_menu_no_items")
+                for _, slot_data in ipairs(data) do
+                    if type(slot_data) == "table" and slot_data.name and slot_data.name ~= "empty" then
+                        slot_data.dlc_locked = nil
+                        slot_data.lock_texture = nil
+                        slot_data.lock_color = nil
+
+                        if not slot_data.unlocked or (type(slot_data.unlocked) == "number" and slot_data.unlocked <= 0) then
+                            slot_data.unlocked = 1
+                        end
+
+                        if slot_data.corner_text and no_items_text and slot_data.corner_text.selected_text == no_items_text then
+                            slot_data.corner_text = nil
+                        end
+
+                        if not slot_data.equipped and slot_data.can_afford then
+                            local found = false
+                            for _, btn in ipairs(slot_data) do
+                                if btn == "wm_buy" then
+                                    found = true
+                                    break
+                                end
+                            end
+                            if not found then
+                                table.insert(slot_data, 1, "wm_buy")
+                            end
+                        end
+                    end
+                end
+            end
+        end
+
+        local orig_update_buy_info = BlackMarketGui._update_buy_info
+        if orig_update_buy_info then
+            function BlackMarketGui:_update_buy_info(data, update)
+                orig_update_buy_info(self, data, update)
+
+                if data and data.locked and not data.empty_slot then
+                    data.locked = false
+                    data.unlocked = true
+                    data.dlc_locked = nil
+
+                    if self._slots and self._slots[data.slot] and self._slots[data.slot].refresh then
+                        self._slots[data.slot]:refresh()
+                    end
+                end
             end
         end
     end
@@ -139,14 +184,12 @@ if HUDLootScreen and not rawget(HUDLootScreen, "_dlc_fix_patched") then
     rawset(HUDLootScreen, "_dlc_fix_patched", true)
     local orig_init = HUDLootScreen.init
     function HUDLootScreen:init(hud, ...)
-        if not hud or not hud.panel then
+        if hud and not hud.panel then
             if managers and managers.hud and managers.hud._create_hud_chat_access then
-                -- Provide dummy or parent panel fallback to avoid nil index crash
-                hud = hud or {}
-                hud.panel = hud.panel or (managers.gui_data and managers.gui_data:create_saferect_workspace() and managers.gui_data:create_saferect_workspace():panel())
+                hud.panel = managers.gui_data and managers.gui_data:create_saferect_workspace() and managers.gui_data:create_saferect_workspace():panel()
             end
         end
-        if hud and hud.panel and orig_init then
+        if orig_init then
             return orig_init(self, hud, ...)
         end
     end

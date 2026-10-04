@@ -122,6 +122,51 @@ local function unlock_dlc_manager(manager_class)
         return true
     end
 
+    -- Achievement & milestone lock overrides to prevent locking weapon mods, masks, and cosmetics
+    function manager_class:is_content_achievement_locked(...)
+        return false
+    end
+
+    function manager_class:is_content_achievement_milestone_locked(...)
+        return false
+    end
+
+    function manager_class:is_content_skirmish_locked(...)
+        return false
+    end
+
+    function manager_class:is_content_crimespree_locked(...)
+        return false
+    end
+
+    function manager_class:is_content_infamy_locked(...)
+        return false
+    end
+
+    function manager_class:is_weapon_mod_achievement_locked(...)
+        return false
+    end
+
+    function manager_class:is_weapon_mod_achievement_milestone_locked(...)
+        return false
+    end
+
+    function manager_class:is_mask_achievement_locked(...)
+        return false
+    end
+
+    function manager_class:is_mask_achievement_milestone_locked(...)
+        return false
+    end
+
+    function manager_class:is_material_achievement_locked(...)
+        return false
+    end
+
+    function manager_class:is_texture_achievement_locked(...)
+        return false
+    end
+
     function manager_class:get_dlc_info(dlc_id)
         return {
             name = "DLC " .. tostring(dlc_id),
@@ -150,20 +195,20 @@ local function unlock_dlc_manager(manager_class)
         end
     end
 
-    -- Override give_dlc_package to mark all packages owned and use pcall on original
+    -- Override give_dlc_package to award items and mark all packages owned
     local orig_give_dlc_package = manager_class.give_dlc_package
     function manager_class:give_dlc_package()
         Global.dlc_save = Global.dlc_save or { packages = {} }
         Global.dlc_save.packages = Global.dlc_save.packages or {}
 
+        if orig_give_dlc_package then
+            pcall(orig_give_dlc_package, self)
+        end
+
         if tweak_data and tweak_data.dlc then
             for package_id, data in pairs(tweak_data.dlc) do
                 Global.dlc_save.packages[package_id] = true
             end
-        end
-
-        if orig_give_dlc_package then
-            pcall(orig_give_dlc_package, self)
         end
         return true
     end
